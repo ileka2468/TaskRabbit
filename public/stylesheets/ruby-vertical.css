@@ -1,0 +1,133 @@
+/* ########################################################### */
+/* #################### RUBY MEGA MENU   ##################### */
+/* ######################## V 1.0 ############################ */
+
+/* ############## VERTICAL ORIENTED MENU STYLES ############## */
+
+div.ruby-wrapper.ruby-vertical {
+  position: relative;
+  width: 200px;
+  height: auto;
+  top: 0;
+  margin: 0;
+  background: #333;
+}
+
+/* RUBY 1ST LEVEL */
+div.ruby-wrapper.ruby-vertical > ul {
+  width: 100%;
+  margin: 0;
+}
+
+ul.ruby-menu.ruby-vertical > li {
+  float: none;
+  position: relative;
+}
+
+ul.ruby-menu.ruby-vertical > li.ruby-menu.ruby-vertical-right {
+  float: none;
+}
+
+ul.ruby-menu.ruby-vertical > li > a {
+  width: 100%;
+  line-height: 40px;
+}
+
+div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu > li:first-child > a {
+  padding-left: 15px;
+}
+
+/* RUBY MENU SOCIAL ICONS */
+ul.ruby-menu.ruby-vertical > li.ruby-menu-social.ruby-menu-search > a {
+  display: none;
+}
+
+ul.ruby-menu.ruby-vertical > li.ruby-menu-social > a > span {
+  display: block;
+}
+
+ul.ruby-menu.ruby-vertical > li.ruby-menu-social img {
+  display: inline-table;
+  position: absolute;
+  top: 15px;
+}
+
+ul.ruby-menu.ruby-vertical > li.ruby-menu-social > a {
+  width: 100%;
+  font-size: 14px;
+}
+
+ul.ruby-menu.ruby-vertical > li.ruby-menu-social .fa {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+}
+
+ul.ruby-menu.ruby-vertical > li.ruby-menu-social span {
+  padding: 0 25px;
+}
+
+ul.ruby-menu.ruby-vertical > li > a:after {
+	/* css down-arrows if has child item */
+	content: '\f105';
+  right: 16px;
+}
+
+ul.ruby-menu.ruby-vertical > li > a:only-child:after,
+ul.ruby-menu.ruby-vertical > li:hover > a:only-child:after {
+  /* NO css down-arrows if DOES NOT have child item */
+	content: '';
+}
+
+/* RUBY 2ND LEVEL */
+ul.ruby-menu.ruby-vertical > li > ul,
+ul.ruby-menu.ruby-vertical > li > ul > li > ul,
+ul.ruby-menu.ruby-vertical > li > ul > li > ul > li > ul {
+  left: 100%;
+  top: -4px;
+}
+
+ul.ruby-menu.ruby-vertical > li > ul {
+  top: 0;
+}
+
+ul.ruby-menu.ruby-vertical > li > ul > li > a,
+ul.ruby-menu.ruby-vertical > li > ul > li > ul > li > a,
+ul.ruby-menu.ruby-vertical > li > ul > li > ul > li > ul > li > a {
+  width: 170px;
+  max-width: 170px;
+}
+
+/* RUBY 3RD & 4TH LEVEL SPECIFIC */
+ul.ruby-menu.ruby-vertical > li > ul > li > ul,
+ul.ruby-menu.ruby-vertical > li > ul > li > ul > li > ul {
+  left: 100%;
+  top: -4px;
+}
+
+ul.ruby-menu.ruby-vertical > li > ul > li.ruby-open-to-left > ul,
+ul.ruby-menu.ruby-vertical > li > ul > li > ul > li.ruby-open-to-left > ul {
+  left: auto;
+  right: 100%;
+}
+
+/* RUBY MENU MEGA */
+ul.ruby-menu.ruby-vertical > li.ruby-menu-mega > div,
+ul.ruby-menu.ruby-vertical > li.ruby-menu-mega-blog > div,
+ul.ruby-menu.ruby-vertical > li.ruby-menu-mega-shop > div {
+  width: 780px; /* since 1st level ul width is 200px (i.e. 980-200)*/
+  top: 0;
+  left: 100%;
+}
+
+/* RUBY MENU MEGA BLOG */
+ul.ruby-menu.ruby-vertical > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li > div {
+  width: 580px; /* since 1st level ul width is 200px (i.e. 780-200)*/
+  left: 100%;
+}
+
+/* DEVICES EXCEPT MOBILE */
+@media(min-width:768px) {
+
+
+}

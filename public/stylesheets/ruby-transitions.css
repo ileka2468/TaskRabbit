@@ -1,0 +1,128 @@
+/* ########################################################### */
+/* #################### RUBY MEGA MENU   ##################### */
+/* ######################## V 1.0 ############################ */
+
+/* ################## TRANSITION EFFECTS ##################### */
+
+/* Ruby Mega Menu - Dropdown Togglers - MOBILE */
+span.ruby-dropdown-toggle {
+	transition: transform 0.3s ease;
+}
+
+span.ruby-dropdown-toggle:after {
+	transition: transform 0.3s ease;
+}
+
+@media(min-width:767px) {
+
+	/* Arrows */
+	ul.ruby-menu > li > a:after {
+		transition: all 0.3s ease;
+	}
+
+	ul.ruby-menu > li > ul > li > a:after,
+	ul.ruby-menu > li > ul > li > ul > li > a:after,
+	ul.ruby-menu > li > ul > li > ul > li > ul > li > a:after {
+		transition: all 0.3s ease;
+	}
+
+	/* 1st level move-up effect */
+	ul.ruby-menu > li > ul,
+	ul.ruby-menu > li > div {
+		transform: translateY(25px);
+		transition: all 0.3s ease;
+	}
+
+	ul.ruby-menu > li:hover > ul,
+	ul.ruby-menu > li:hover > div {
+		transform: translateY(0);
+	}
+
+	/* 1st level move-left effect --> For Vertical Menu Orientation */
+	ul.ruby-menu.ruby-vertical > li > ul,
+	ul.ruby-menu.ruby-vertical > li > div {
+		transform: translateX(25px);
+		transition: all 0.3s ease;
+	}
+
+	ul.ruby-menu.ruby-vertical > li:hover > ul,
+	ul.ruby-menu.ruby-vertical > li:hover > div {
+		transform: translateX(0);
+	}
+
+	/* 2nd 3rd 4th level move-left/right effect */
+	ul.ruby-menu > li > ul > li > ul,
+	ul.ruby-menu > li > ul > li > ul > li > ul,
+	ul.ruby-menu > li > ul > li > ul > li > ul > li > ul {
+		transform: translateX(25px);
+		transition: all 0.3s ease;
+	}
+
+	ul.ruby-menu > li > ul > li:hover > ul,
+	ul.ruby-menu > li > ul > li > ul > li:hover > ul,
+	ul.ruby-menu > li > ul > li > ul > li > ul > li:hover > ul {
+		transform: translateX(0);
+	}
+
+	ul.ruby-menu > li > ul > li.ruby-open-to-left > ul,
+	ul.ruby-menu > li > ul > li > ul > li.ruby-open-to-left > ul,
+	ul.ruby-menu > li > ul > li > ul > li > ul > li.ruby-open-to-left > ul {
+		transform: translateX(-25px);
+		transition: all 0.3s ease;
+	}
+
+	ul.ruby-menu > li > ul > li.ruby-open-to-left:hover > ul,
+	ul.ruby-menu > li > ul > li > ul > li.ruby-open-to-left:hover > ul,
+	ul.ruby-menu > li > ul > li > ul > li > ul > li.ruby-open-to-left:hover > ul {
+		transform: translateX(0);
+	}
+
+	/* Ruby Mega Menu Blog list content move-down effect */
+	ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li > div {
+		transform: translateY(-50px);
+		transition: all 0.5s ease;
+	}
+	ul.ruby-menu > li.ruby-menu-mega-blog:hover > div > ul.ruby-menu-mega-blog-nav > li.ruby-active-menu-item > div,
+	ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li:hover > div {
+		transform: translateY(0);
+	}
+
+	/* Ruby Mega Menu Blog list content move-left effect --> For Vertical Menu Orientation */
+	ul.ruby-menu.ruby-vertical > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li > div {
+		transform: translateX(50px);
+		transition: all 0.5s ease;
+	}
+	ul.ruby-menu.ruby-vertical > li.ruby-menu-mega-blog:hover > div > ul.ruby-menu-mega-blog-nav > li.ruby-active-menu-item > div,
+	ul.ruby-menu.ruby-vertical > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li:hover > div {
+		transform: translateX(0);
+	}
+
+	/* Ruby Mega Menu Shop List content move-down effect */
+  ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > div {
+		transform: translateY(-50px);
+		transition: all 0.5s ease;
+	}
+
+	ul.ruby-menu > li.ruby-menu-mega-shop:hover > div > ul > li.ruby-active-menu-item > div,
+	ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li:hover > div {
+		transform: translateY(0);
+	}
+
+	/* Ruby Mega Menu Shop List content move-down effect --> For Vertical Menu Orientation */
+  ul.ruby-menu.ruby-vertical > li.ruby-menu-mega-shop > div > ul > li > div {
+		transform: translateX(50px);
+		transition: all 0.5s ease;
+	}
+
+	ul.ruby-menu.ruby-vertical > li.ruby-menu-mega-shop:hover > div > ul > li.ruby-active-menu-item > div,
+	ul.ruby-menu.ruby-vertical > li.ruby-menu-mega-shop > div > ul > li:hover > div {
+		transform: translateX(0);
+	}
+
+	ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a:before,
+  ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a:after {
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+
+}
