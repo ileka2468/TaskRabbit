@@ -5,7 +5,7 @@
 /* ################## RESPONSIVE STYLES ###################### */
 
 /* MEDIA QUERY --> EXTRA SMALL DEVICES */
-@media(max-width:996px){
+@media(max-width:767px){
 
   div.ruby-wrapper .hidden-xs {
     visibility: hidden;
@@ -684,7 +684,7 @@
   }
 
   ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a {
-    padding: 20px 5px;
+    /* padding: 20px 5px; */
     font-size: 12px;
     font-stretch: condensed;
     color: #666;
