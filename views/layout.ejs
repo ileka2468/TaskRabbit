@@ -1,628 +1,707 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="title" content="Ruby Mega Menu" />
-    <meta
-      name="description"
-      content="A mega menu built with CSS and Javascript"
-      />
-    <meta name="author" content="brienlabs" />
-    <link rel="icon" href="../../favicon.ico" />
 
-    <title>TaskRabbit | Freelance Services</title>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TaskRabbit | Freelance Services</title>
 
-    <!-- NORMALIZE.CSS -->
-    <link href="stylesheets/normalize.css" rel="stylesheet" />
-    <!-- FontAwesome CSS -->
-    <link href="stylesheets/font-awesome.min.css" rel="stylesheet" />
-    <link
-      href="stylesheets/ie10-viewport-bug-workaround.css"
-      rel="stylesheet"
-      />
+  <!-- NORMALIZE.CSS -->
+  <link href="stylesheets/normalize.css" rel="stylesheet" />
+  <!-- FontAwesome CSS -->
+  <link href="stylesheets/font-awesome.min.css" rel="stylesheet" />
+  <link href="stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet" />
 
-    <!-- ruby Main -->
-    <link href="stylesheets/ruby-main.css" rel="stylesheet" />
-    <!-- ruby Vertical -->
-    <link href="stylesheets/ruby-vertical.css" rel="stylesheet" />
+  <!-- ruby Main -->
+  <link href="stylesheets/ruby-main.css" rel="stylesheet" />
+  <!-- ruby Vertical -->
+  <link href="stylesheets/ruby-vertical.css" rel="stylesheet" />
 
-    <link href="stylesheets/ruby-site.css" rel="stylesheet" />
-    <!-- ruby Vertical -->
-    <link
-      href="stylesheets/ruby-transitions.css"
-      rel="stylesheet"
-      id="ruby-transitions"
-      />
-    <!-- ruby Responsive -->
-    <link href="stylesheets/ruby-responsive.css" rel="stylesheet" />
-    <!-- font Open-Sans -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,800,700"
-      rel="stylesheet"
-      type="text/css"
-      />
-  </head>
+  <link href="stylesheets/ruby-site.css" rel="stylesheet" />
+  <!-- ruby Vertical -->
+  <link href="stylesheets/ruby-transitions.css" rel="stylesheet" id="ruby-transitions" />
+  <!-- ruby Responsive -->
+  <link href="stylesheets/ruby-responsive.css" rel="stylesheet" />
+  <!-- font Open-Sans -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800,700" rel="stylesheet" type="text/css" />
+</head>
 
-  <body>
-    <header></header>
-    <div class="ruby-menu-demo-header ruby-menu-demo-header-bg">
-      <div class="ruby-menu-demo-description">
-        <img src="img/logo2.png" />
-      </div>
-
-      <div class="ruby-wrapper ruby-menu-transparent">
-        <button class="c-hamburger c-hamburger--htx visible-xs">
-          <span>toggle menu</span>
-        </button>
-        <ul class="ruby-menu">
-          <li class="ruby-active-menu-item">
-            <a href="#">Graphics &amp Design</a>
-          </li>
-          <li>
-            <a href="#">Video &amp Animation</a>
-            <ul>
-              <li>
-                <a href="#">2nd Level #1</a>
-                <ul>
-                  <li><a href="#">3rd Level #1</a></li>
-                </ul>
-              </li>
-              <li><a href="#">2nd Level #2</a></li>
-              <li>
-                <a href="#">2nd Level #3</a>
-                <ul>
-                  <li>
-                    <a href="#"><i class="fa fa-university" aria-hidden="true"></i>3rd
-                      Level #1</a>
-                    <ul>
-                      <li><a href="#">4th Level #1</a></li>
-                      <li><a href="#">4th Level #2</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>3rd
-                      Level #2</a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-users" aria-hidden="true"></i>3rd
-                      Level
-                      #3</a>
-                    <ul>
-                      <li>
-                        <a href="#"><i class="fa fa-paper-plane"
-                            aria-hidden="true"></i>4th Level #1</a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fa fa-print" aria-hidden="true"></i>4th
-                          Level #2</a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fa fa-shopping-bag"
-                            aria-hidden="true"></i>4th Level #3</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li class="ruby-open-to-left">
-                <a href="#">2nd Level #4</a>
-                <ul>
-                  <li><a href="#">3rd Level #1</a></li>
-                  <li><a href="#">3rd Level #2</a></li>
-                  <li><a href="#">3rd Level #3</a></li>
-                </ul>
-              </li>
-              <li><a href="#">2nd Level #5</a></li>
-            </ul>
-          </li>
-
-          <li class="ruby-menu-mega">
-            <a href="#">Programming &amp Tech</a>
-            <div class="ruby-grid ruby-grid-lined">
-              <div class="ruby-row">
-                <div class="ruby-col-2">
-                  <h3 class="ruby-list-heading">Normal List</h3>
-                  <ul>
-                    <li><a href="#">Menu Item #1</a></li>
-                    <li><a href="#">Menu Item #2</a></li>
-                    <li><a href="#">Menu Item #3</a></li>
-                    <li><a href="#">Menu Item #4</a></li>
-                    <li><a href="#">Menu Item #5</a></li>
-                  </ul>
-                </div>
-                <div class="ruby-col-2 hidden-md">
-                  <h3 class="ruby-list-heading">List with Icons</h3>
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fa fa-motorcycle"
-                          aria-hidden="true"></i>Menu
-                        Item #1</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-music" aria-hidden="true"></i>Menu
-                        Item
-                        #2</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-shopping-cart"
-                          aria-hidden="true"></i>Menu Item #3</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-sliders" aria-hidden="true"></i>Menu
-                        Item #4</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-search" aria-hidden="true"></i>Menu
-                        Item #5</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="ruby-col-3 ruby-col-4-md">
-                  <h3 class="ruby-list-heading">List with Images + Desc</h3>
-                  <ul class="ruby-list-with-images">
-                    <li>
-                      <a href="#"><img src="img/c-1.png" />Menu Item #1</a><span
-                        class="ruby-list-desc">Lorem ipsum dolor sit</span>
-                    </li>
-                    <li>
-                      <a href="#"><img src="img/c-2.png" />Menu Item #2</a><span
-                        class="ruby-list-desc">Lorem ipsum dolor sit</span>
-                    </li>
-                    <li>
-                      <a href="#"><img src="img/c-3.png" />Menu Item #3</a><span
-                        class="ruby-list-desc">Lorem ipsum dolor sit</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="ruby-col-5">
-                  <h3 class="ruby-list-heading">Multiple Lists with Icons</h3>
-                  <div class="ruby-row">
-                    <div class="ruby-col-4 ruby-col-6-md">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="fa fa-star" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-signal"
-                              aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-send" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-user" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-thumbs-o-up"
-                              aria-hidden="true"></i>Menu Item</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="ruby-col-4 ruby-col-6-md"
-                      style="padding-left: 10px">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="fa fa-rocket"
-                              aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-warning"
-                              aria-hidden="true"></i>Menu Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-upload"
-                              aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-umbrella"
-                              aria-hidden="true"></i>Menu Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-trophy"
-                              aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="ruby-col-4 hidden-md"
-                      style="padding-left: 15px">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="fa fa-map-o" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-image" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-legal" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-paint-brush"
-                              aria-hidden="true"></i>Menu Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li class="ruby-menu-mega">
-            <a href="#">Writing &amp Transaltion</a>
-            <div class="ruby-grid ruby-grid-lined">
-              <div class="ruby-row">
-                <div class="ruby-col-2">
-                  <h3 class="ruby-list-heading">Normal List</h3>
-                  <ul>
-                    <li><a href="#">Menu Item #1</a></li>
-                    <li><a href="#">Menu Item #2</a></li>
-                    <li><a href="#">Menu Item #3</a></li>
-                    <li><a href="#">Menu Item #4</a></li>
-                    <li><a href="#">Menu Item #5</a></li>
-                  </ul>
-                </div>
-                <div class="ruby-col-2 hidden-md">
-                  <h3 class="ruby-list-heading">List with Icons</h3>
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fa fa-motorcycle"
-                          aria-hidden="true"></i>Menu
-                        Item #1</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-music" aria-hidden="true"></i>Menu
-                        Item
-                        #2</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-shopping-cart"
-                          aria-hidden="true"></i>Menu Item #3</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-sliders" aria-hidden="true"></i>Menu
-                        Item #4</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-search" aria-hidden="true"></i>Menu
-                        Item #5</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="ruby-col-3 ruby-col-4-md">
-                  <h3 class="ruby-list-heading">List with Images + Desc</h3>
-                  <ul class="ruby-list-with-images">
-                    <li>
-                      <a href="#"><img src="img/c-1.png" />Menu Item #1</a><span
-                        class="ruby-list-desc">Lorem ipsum dolor sit</span>
-                    </li>
-                    <li>
-                      <a href="#"><img src="img/c-2.png" />Menu Item #2</a><span
-                        class="ruby-list-desc">Lorem ipsum dolor sit</span>
-                    </li>
-                    <li>
-                      <a href="#"><img src="img/c-3.png" />Menu Item #3</a><span
-                        class="ruby-list-desc">Lorem ipsum dolor sit</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="ruby-col-5">
-                  <h3 class="ruby-list-heading">Multiple Lists with Icons</h3>
-                  <div class="ruby-row">
-                    <div class="ruby-col-4 ruby-col-6-md">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="fa fa-star" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-signal"
-                              aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-send" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-user" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-thumbs-o-up"
-                              aria-hidden="true"></i>Menu Item</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="ruby-col-4 ruby-col-6-md"
-                      style="padding-left: 10px">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="fa fa-rocket"
-                              aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-warning"
-                              aria-hidden="true"></i>Menu Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-upload"
-                              aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-umbrella"
-                              aria-hidden="true"></i>Menu Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-trophy"
-                              aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div
-                      class="ruby-col-4 hidden-md"
-                      style="padding-left: 15px">
-                      <ul>
-                        <li>
-                          <a href="#"><i class="fa fa-map-o" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-image" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-legal" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-paint-brush"
-                              aria-hidden="true"></i>Menu Item</a>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Menu
-                            Item</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li class="ruby-menu-mega-shop">
-            <a href="#">Digital Marketing</a>
-            <div>
-              <ul>
-                <li class="ruby-active-menu-item">
-                  <a href="#">Clothing</a>
-                  <div class="ruby-grid ruby-grid-lined">
-                    <div class="ruby-row">
-                      <div class="ruby-col-2">
-                        <h3 class="ruby-list-heading">TOPS</h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                          <li><a href="#">Menu Item #5</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-2">
-                        <img src="img/outerwear-2.jpg" />
-                      </div>
-                      <div class="ruby-col-2">
-                        <h3 class="ruby-list-heading">BOTTOM</h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                          <li><a href="#">Menu Item #5</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-2">
-                        <h3 class="ruby-list-heading">NIGHTWEAR</h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                          <li><a href="#">Menu Item #5</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-2">
-                        <img src="img/outerwear-3.jpg" />
-                      </div>
-                      <div class="ruby-col-2">
-                        <h3 class="ruby-list-heading">SWIMWEAR</h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                          <li><a href="#">Menu Item #5</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <a href="#">Outerwear</a>
-                  <div class="ruby-grid ruby-grid-lined">
-                    <div class="ruby-row">
-                      <div class="ruby-col-3">
-                        <img src="img/outerwear.jpg" />
-                      </div>
-                      <div class="ruby-col-3">
-                        <h3 class="ruby-list-heading">COATS</h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                          <li><a href="#">Menu Item #5</a></li>
-                          <li><a href="#">Menu Item #6</a></li>
-                          <li><a href="#">Menu Item #7</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-3">
-                        <h3 class="ruby-list-heading">JACKETS</h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                          <li><a href="#">Menu Item #5</a></li>
-                          <li><a href="#">Menu Item #6</a></li>
-                          <li><a href="#">Menu Item #7</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-3">
-                        <h3 class="ruby-list-heading">LEATHER</h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                          <li><a href="#">Menu Item #5</a></li>
-                          <li><a href="#">Menu Item #6</a></li>
-                          <li><a href="#">Menu Item #7</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <a href="#">Bags &amp; Shoes</a>
-                  <div class="ruby-grid ruby-grid-lined">
-                    <div class="ruby-row">
-                      <div class="ruby-col-3">
-                        <img src="img/bags.jpg" />
-                      </div>
-                      <div class="ruby-col-3">
-                        <h3 class="ruby-list-heading">BAGS</h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                          <li><a href="#">Menu Item #5</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-3">
-                        <h3 class="ruby-list-heading">SHOES</h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                          <li><a href="#">Menu Item #5</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-3">
-                        <img src="img/shoes.jpg" />
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <a href="#">Accessories</a>
-                  <div class="ruby-grid ruby-grid-lined">
-                    <div class="ruby-row">
-                      <div class="ruby-col-3">
-                        <img src="img/eyewear.jpg" />
-                        <h3 class="ruby-list-heading" style="margin-top: 16px">
-                          EYEWEAR
-                        </h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-3">
-                        <img src="img/jewellery.jpg" />
-                        <h3 class="ruby-list-heading" style="margin-top: 16px">
-                          JEWELLERY
-                        </h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-3">
-                        <img src="img/watches.jpg" />
-                        <h3 class="ruby-list-heading" style="margin-top: 16px">
-                          WATCHES
-                        </h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                        </ul>
-                      </div>
-                      <div class="ruby-col-3">
-                        <img src="img/textile.jpg" />
-                        <h3 class="ruby-list-heading" style="margin-top: 16px">
-                          OTHERS
-                        </h3>
-                        <ul>
-                          <li><a href="#">Menu Item #1</a></li>
-                          <li><a href="#">Menu Item #2</a></li>
-                          <li><a href="#">Menu Item #3</a></li>
-                          <li><a href="#">Menu Item #4</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
+<body>
+  <header></header>
+  <div class="ruby-menu-demo-header ruby-menu-demo-header-bg">
+    <div class="ruby-menu-demo-description">
+      <img src="img/logo2.png" />
     </div>
 
-        <div>
-            <%- body %>
-        </div>
-        
-    
+    <div class="ruby-wrapper ruby-menu-transparent ">
+      <button class="c-hamburger c-hamburger--htx visible-xs">
+        <span>toggle menu</span>
+      </button>
+      <ul class="ruby-menu">
+        <li class="ruby-active-menu-item">
+          <a href="#">Graphics &amp Design</a>
+        </li>
 
-    <!-- JQUERY -->
-    <script src="js/jquery-3.1.0.min.js"></script>
 
-    <!-- RUBY MAIN JAVASCRIPT -->
-    <script src="js/ruby-main.js"></script>
+        <li class="ruby-menu-mega-shop">
+          <a href="#">Digital Marketing</a>
+          <div>
+            <ul>
+              <li class="ruby-active-menu-item">
+                <a href="#">Clothing</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">TOPS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-2">
+                      <img src="img/outerwear-2.jpg" />
+                    </div>
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">BOTTOM</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">NIGHTWEAR</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-2">
+                      <img src="img/outerwear-3.jpg" />
+                    </div>
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">SWIMWEAR</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Outerwear</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-3">
+                      <img src="img/outerwear.jpg" />
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">COATS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                        <li><a href="#">Menu Item #6</a></li>
+                        <li><a href="#">Menu Item #7</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">JACKETS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                        <li><a href="#">Menu Item #6</a></li>
+                        <li><a href="#">Menu Item #7</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">LEATHER</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                        <li><a href="#">Menu Item #6</a></li>
+                        <li><a href="#">Menu Item #7</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Bags &amp; Shoes</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-3">
+                      <img src="img/bags.jpg" />
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">BAGS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">SHOES</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/shoes.jpg" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Accessories</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-3">
+                      <img src="img/eyewear.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        EYEWEAR
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/jewellery.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        JEWELLERY
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/watches.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        WATCHES
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/textile.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        OTHERS
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
 
-    <!-- RUBY DEMO JAVASCRIPT: FOR DEMO SHOWCASE ONLY! RUBY DEMO JAVASCRIPT IS NOT SUPPORTED! -->
-    <script src="js/ruby-demo.js"></script>
-  </body>
+
+        <li class="ruby-menu-mega-shop">
+          <a href="#">Digital Marketing</a>
+          <div>
+            <ul>
+              <li class="ruby-active-menu-item">
+                <a href="#">Clothing</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">TOPS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-2">
+                      <img src="img/outerwear-2.jpg" />
+                    </div>
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">BOTTOM</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">NIGHTWEAR</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-2">
+                      <img src="img/outerwear-3.jpg" />
+                    </div>
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">SWIMWEAR</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Outerwear</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-3">
+                      <img src="img/outerwear.jpg" />
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">COATS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                        <li><a href="#">Menu Item #6</a></li>
+                        <li><a href="#">Menu Item #7</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">JACKETS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                        <li><a href="#">Menu Item #6</a></li>
+                        <li><a href="#">Menu Item #7</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">LEATHER</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                        <li><a href="#">Menu Item #6</a></li>
+                        <li><a href="#">Menu Item #7</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Bags &amp; Shoes</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-3">
+                      <img src="img/bags.jpg" />
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">BAGS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">SHOES</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/shoes.jpg" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Accessories</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-3">
+                      <img src="img/eyewear.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        EYEWEAR
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/jewellery.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        JEWELLERY
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/watches.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        WATCHES
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/textile.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        OTHERS
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="ruby-menu-mega-shop">
+          <a href="#">Digital Marketing</a>
+          <div>
+            <ul>
+              <li class="ruby-active-menu-item">
+                <a href="#">Clothing</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">TOPS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-2">
+                      <img src="img/outerwear-2.jpg" />
+                    </div>
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">BOTTOM</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">NIGHTWEAR</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-2">
+                      <img src="img/outerwear-3.jpg" />
+                    </div>
+                    <div class="ruby-col-2">
+                      <h3 class="ruby-list-heading">SWIMWEAR</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Outerwear</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-3">
+                      <img src="img/outerwear.jpg" />
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">COATS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                        <li><a href="#">Menu Item #6</a></li>
+                        <li><a href="#">Menu Item #7</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">JACKETS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                        <li><a href="#">Menu Item #6</a></li>
+                        <li><a href="#">Menu Item #7</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">LEATHER</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                        <li><a href="#">Menu Item #6</a></li>
+                        <li><a href="#">Menu Item #7</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Bags &amp; Shoes</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-3">
+                      <img src="img/bags.jpg" />
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">BAGS</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <h3 class="ruby-list-heading">SHOES</h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                        <li><a href="#">Menu Item #5</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/shoes.jpg" />
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Accessories</a>
+                <div class="ruby-grid ruby-grid-lined">
+                  <div class="ruby-row">
+                    <div class="ruby-col-3">
+                      <img src="img/eyewear.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        EYEWEAR
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/jewellery.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        JEWELLERY
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/watches.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        WATCHES
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                    <div class="ruby-col-3">
+                      <img src="img/textile.jpg" />
+                      <h3 class="ruby-list-heading" style="margin-top: 16px">
+                        OTHERS
+                      </h3>
+                      <ul>
+                        <li><a href="#">Menu Item #1</a></li>
+                        <li><a href="#">Menu Item #2</a></li>
+                        <li><a href="#">Menu Item #3</a></li>
+                        <li><a href="#">Menu Item #4</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+
+        <li>
+          <a href="#">Manage</a>
+          <ul>
+            <li>
+              <a class="user-view" href="#">Switch to Selling</a>
+            </li>
+            <li><a href="#">Profile</a></li>
+            <li>
+              <a href="#">2nd Level #3</a>
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-university" aria-hidden="true"></i>3rd
+                    Level #1</a>
+                  <ul>
+                    <li><a href="#">4th Level #1</a></li>
+                    <li><a href="#">4th Level #2</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>3rd
+                    Level #2</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-users" aria-hidden="true"></i>3rd
+                    Level
+                    #3</a>
+                  <ul>
+                    <li>
+                      <a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i>4th Level #1</a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-print" aria-hidden="true"></i>4th
+                        Level #2</a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i>4th Level #3</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="ruby-open-to-left">
+              <a href="#">2nd Level #4</a>
+              <ul>
+                <li><a href="#">3rd Level #1</a></li>
+                <li><a href="#">3rd Level #2</a></li>
+                <li><a href="#">3rd Level #3</a></li>
+              </ul>
+            </li>
+            <li><a href="#">2nd Level #5</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <%- body %>
+  </div>
+
+
+
+  <!-- JQUERY -->
+  <script src="js/jquery-3.1.0.min.js"></script>
+
+  <!-- RUBY MAIN JAVASCRIPT -->
+  <script src="js/ruby-main.js"></script>
+
+  <!-- RUBY DEMO JAVASCRIPT: FOR DEMO SHOWCASE ONLY! RUBY DEMO JAVASCRIPT IS NOT SUPPORTED! -->
+  <script src="js/ruby-demo.js"></script>
+</body>
+
 </html>
