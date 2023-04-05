@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/error.css">
-    <title>Something goofed</title>
+    <%- include('partials/head') %>
+        <title>Something goofed</title>
 </head>
+
 <body>
     <div id="main">
-    	<div class="fof">
-        		<h1>Error <%= errcode %></h1>
-                <h2>Oops! Well that's embarassing. </h2>
-                <h3>Check back later</h3>
-                <a href="/">
-                    <button  class="button2">
-                        Home
-                    </button>
-                </a>
+        <div class="fof">
+            <h1>Error <%= errcode %>
+            </h1>
+            <h2>Oops! Well that's embarassing. </h2>
+            <h3>Check back later</h3>
+            <a href="/">
+                <button class="button2">
+                    Home
+                </button>
+            </a>
 
-    	</div>
-        
+        </div>
+
     </div>
 
+    <%- include('partials/footer') %>
+
 </body>
+
 </html>
