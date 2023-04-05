@@ -5,7 +5,7 @@
 /* ################## RESPONSIVE STYLES ###################### */
 
 /* MEDIA QUERY --> EXTRA SMALL DEVICES */
-@media(max-width:767px){
+@media(max-width:996px){
 
   div.ruby-wrapper .hidden-xs {
     visibility: hidden;
@@ -626,7 +626,7 @@
 }
 
 /* MEDIA QUERY --> SMALL DEVICES */
-@media(min-width:768px) and (max-width:991px){
+@media(max-width:996px){
   .ruby-wrapper .hidden-md {
     visibility: hidden;
     display: none;
