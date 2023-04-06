@@ -1,0 +1,123 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    color: #222222;
+    font-size: 1em;
+    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  
+  /*---------- heading ----------- */
+
+  
+  .masthead-heading {
+    font-size: 6em;
+    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    text-shadow: 1.5px 3px 0px #edc647;
+    color: #F7E199;
+    margin-top: -0.2em;
+  
+  }
+  .masthead-intro {
+    font-size: 2em;
+    font-family: "Gentium Book Basic", Georgia, serif;
+    text-align: center;
+    color: #e5e5e5;
+    margin-bottom: 0.1em;
+  }
+  
+  /*---------- section ----------- */
+  .intro,
+  .where-Im-from,
+  .more-about-me {
+    max-width: 38em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    text-align: left;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .intro > p,
+  .where-Im-from > p,
+  .more-about-me > p {
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+  
+  section > h1 {
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-bottom: 50px;
+    padding-top: 30px;
+  }
+  
+  .more-about-me > h2 {
+    font-size: 1.2em;
+    font-family: "Gentium Book Basic";
+    font-weight: bold;
+    color: #f7e199;
+  }
+  
+  /*---------- footer ----------- */
+  .content-footer {
+    margin-top: 8em;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    background-color: #ffcf33;
+  }
+  
+  .content-footer > p {
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-family: "Open Sans"
+  }
+  
+  footer > ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  footer ul li {
+    list-style-type: none;
+    display: inline;
+  }
+  
+  .content-footer a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    color: #000;
+  }
+  
+  @media only screen and (max-width:500px){
+    .masthead {
+      padding: 3em 0;
+    }
+    .masthead-heading {
+      font-size: 3em;
+    }
+    .intro,
+    .where-Im-from,
+    .more-about-me,
+    .content-footer {
+      font-size: 0.5em;
+    }
+  }

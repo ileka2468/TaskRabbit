@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheets/contact.css">
   <title>Index page</title>
   <%- include('partials/head') %>
 </head>
@@ -14,18 +15,18 @@
   <%- include('partials/header') %>
 
     <main>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
-      <h1>contact stuff here</h1>
+      <h1>Contact Form</h1>
+      <form class="cf">
+        <div class="half left cf">
+          <input type="text" id="input-name" placeholder="Name">
+          <input type="email" id="input-email" placeholder="Email address">
+          <input type="text" id="input-subject" placeholder="Subject">
+        </div>
+        <div class="half right cf">
+          <textarea name="message" type="text" id="input-message" placeholder="Message"></textarea>
+        </div>
+        <input type="submit" value="Submit" id="input-submit">
+      </form>
     </main>
     <%- include('partials/footer') %>
 </body>

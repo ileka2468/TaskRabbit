@@ -47,6 +47,10 @@ footer p{
   color: #888;
 }
 
+footer{
+  margin-top: 3em;
+}
+
 div.footer-body{
   width: 100%;
   height: fit-content;
@@ -71,6 +75,11 @@ div.footer-div ul li a{
   color: #888;
   
   
+}
+
+div.footer-div ul {
+  display: flex;
+  flex-direction: column;
 }
 
 div.footer-div ul li {
@@ -147,7 +156,9 @@ div.footer-nav ul{
 .text-container{
   width: 70%;
   text-align: center;
+  padding-bottom: 1em;
 }
+
 
 div.footer-nav ul li a{
   margin-left: .5em;
