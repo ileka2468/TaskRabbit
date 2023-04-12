@@ -4,22 +4,30 @@
 
 /* ##################### MAIN STYLES ######################### */
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 div.ruby-wrapper {
   position: relative;
-  width: 980px;
+  /* width: 980px; */
   height: 50px;
   margin: 0 auto;
   background: #333;
+  display: flex;
+  justify-content: center;
+}
+
+#3d {
+  padding-top: 1em;
 }
 
 /* RUBY 1ST LEVEL */
@@ -48,9 +56,9 @@ ul.ruby-menu > li > a {
   padding: 0 25px 0 15px;
   color: #efefef;
   text-decoration: none;
-  font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
-	text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 ul.ruby-menu > li > a:only-child {
@@ -66,8 +74,8 @@ ul.ruby-menu > li.ruby-active-menu-item:hover > a {
 
 ul.ruby-menu > li > a:only-child:after,
 ul.ruby-menu > li:hover > a:only-child:after {
-	/* NO css down-arrows if DOES NOT have child item */
-	content: '';
+  /* NO css down-arrows if DOES NOT have child item */
+  content: "";
 }
 
 ul.ruby-menu > li.ruby-active-menu-item > a {
@@ -105,24 +113,36 @@ ul.ruby-menu.ruby-menu-dividers > li.ruby-menu-social.ruby-menu-search > a {
 }
 
 ul.ruby-menu > li.ruby-menu-social.ruby-menu-search > a:hover,
-ul.ruby-menu.ruby-menu-dividers > li.ruby-menu-social.ruby-menu-search > a:hover {
+ul.ruby-menu.ruby-menu-dividers
+  > li.ruby-menu-social.ruby-menu-search
+  > a:hover {
   width: 120px;
 }
 
 ul.ruby-menu > li.ruby-menu-social.ruby-menu-search > a:hover > span input,
-ul.ruby-menu.ruby-menu-dividers > li.ruby-menu-social.ruby-menu-search > a:hover > span input {
+ul.ruby-menu.ruby-menu-dividers
+  > li.ruby-menu-social.ruby-menu-search
+  > a:hover
+  > span
+  input {
   transform: scaleY(1);
   max-width: 80px;
-
 }
 
 ul.ruby-menu > li.ruby-menu-social.ruby-menu-search > a span,
-ul.ruby-menu.ruby-menu-dividers > li.ruby-menu-social.ruby-menu-search > a span {
+ul.ruby-menu.ruby-menu-dividers
+  > li.ruby-menu-social.ruby-menu-search
+  > a
+  span {
   display: inline;
 }
 
 ul.ruby-menu > li.ruby-menu-social.ruby-menu-search > a > span input,
-ul.ruby-menu.ruby-menu-dividers > li.ruby-menu-social.ruby-menu-search > a > span input  {
+ul.ruby-menu.ruby-menu-dividers
+  > li.ruby-menu-social.ruby-menu-search
+  > a
+  > span
+  input {
   position: absolute;
   width: 80px;
   height: 50px;
@@ -131,7 +151,7 @@ ul.ruby-menu.ruby-menu-dividers > li.ruby-menu-social.ruby-menu-search > a > spa
   background: none;
   color: #efefef;
   border: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
@@ -146,7 +166,11 @@ ul.ruby-menu > li.ruby-menu-social.ruby-menu-search > a > span input:focus {
   color: #efefef;
 }
 
-ul.ruby-menu > li.ruby-menu-social.ruby-menu-search > a > span input::-webkit-input-placeholder {
+ul.ruby-menu
+  > li.ruby-menu-social.ruby-menu-search
+  > a
+  > span
+  input::-webkit-input-placeholder {
   color: #efefef;
 }
 
@@ -245,7 +269,6 @@ ul.ruby-menu > li.ruby-menu-right > ul {
   right: 0;
 }
 
-
 /* RUBY 3RD & 4TH LEVEL SPECIFIC */
 ul.ruby-menu > li > ul > li > ul,
 ul.ruby-menu > li > ul > li > ul > li > ul {
@@ -292,7 +315,12 @@ ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li {
   font-size: 14px;
 }
 
-ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li > a {
+ul.ruby-menu
+  > li.ruby-menu-mega-blog
+  > div
+  > ul.ruby-menu-mega-blog-nav
+  > li
+  > a {
   display: block;
   line-height: 40px;
   padding: 0 15px;
@@ -301,11 +329,21 @@ ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li > 
   text-decoration: none;
 }
 
-ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li.ruby-active-menu-item > a {
+ul.ruby-menu
+  > li.ruby-menu-mega-blog
+  > div
+  > ul.ruby-menu-mega-blog-nav
+  > li.ruby-active-menu-item
+  > a {
   background: #e6e6e6;
 }
 
-ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li > div {
+ul.ruby-menu
+  > li.ruby-menu-mega-blog
+  > div
+  > ul.ruby-menu-mega-blog-nav
+  > li
+  > div {
   position: absolute;
   width: 780px;
   height: auto;
@@ -315,7 +353,12 @@ ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li > 
   background: #fff;
 }
 
-ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li:hover > a {
+ul.ruby-menu
+  > li.ruby-menu-mega-blog
+  > div
+  > ul.ruby-menu-mega-blog-nav
+  > li:hover
+  > a {
   background: #ddd;
 }
 
@@ -352,7 +395,12 @@ ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a {
 
 ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li:hover > a,
 ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a:hover,
-ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li.ruby-active-menu-item > a {
+ul.ruby-menu
+  > li.ruby-menu-mega-shop
+  > div
+  > ul
+  > li.ruby-active-menu-item
+  > a {
   text-decoration: none;
 }
 
@@ -405,7 +453,14 @@ div.ruby-grid.ruby-grid-lined > div.ruby-row:after {
   height: 1px;
   left: 0;
   bottom: 0;
-  background: -webkit-linear-gradient(left,  rgba(204,204,204,0) 0%,rgba(204,204,204,0.48) 24%,rgba(204,204,204,1) 50%,rgba(204,204,204,0.42) 79%,rgba(204,204,204,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(204, 204, 204, 0) 0%,
+    rgba(204, 204, 204, 0.48) 24%,
+    rgba(204, 204, 204, 1) 50%,
+    rgba(204, 204, 204, 0.42) 79%,
+    rgba(204, 204, 204, 0) 100%
+  ); /* Chrome10+,Safari5.1+ */
 }
 
 div.ruby-grid.ruby-grid-lined > div.ruby-row:last-child:after {
@@ -413,9 +468,9 @@ div.ruby-grid.ruby-grid-lined > div.ruby-row:last-child:after {
 }
 
 div.ruby-grid > div.ruby-row::after {
-	content: "";
-	display: table;
-	clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /*columns*/
@@ -432,7 +487,10 @@ div.ruby-grid > div.ruby-row > [class^="ruby-col"] {
 div.ruby-grid > div.ruby-row > [class^="ruby-col"] [class^="ruby-col"] {
   padding-left: 16px;
 }
-div.ruby-grid > div.ruby-row > [class^="ruby-col"] [class^="ruby-col"]:first-of-type {
+div.ruby-grid
+  > div.ruby-row
+  > [class^="ruby-col"]
+  [class^="ruby-col"]:first-of-type {
   padding-left: 0;
 }
 
@@ -491,10 +549,19 @@ div.ruby-grid.ruby-grid-lined > div.ruby-row > div[class^="ruby-col"]:after {
   width: 1px;
   height: 100%;
   right: 0;
-  background: -webkit-linear-gradient(top,  rgba(204,204,204,0) 0%,rgba(204,204,204,0.48) 24%,rgba(204,204,204,1) 50%,rgba(204,204,204,0.42) 79%,rgba(204,204,204,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(204, 204, 204, 0) 0%,
+    rgba(204, 204, 204, 0.48) 24%,
+    rgba(204, 204, 204, 1) 50%,
+    rgba(204, 204, 204, 0.42) 79%,
+    rgba(204, 204, 204, 0) 100%
+  ); /* Chrome10+,Safari5.1+ */
 }
 
-div.ruby-grid.ruby-grid-lined > div.ruby-row > div[class^="ruby-col"]:last-child:after {
+div.ruby-grid.ruby-grid-lined
+  > div.ruby-row
+  > div[class^="ruby-col"]:last-child:after {
   width: 0;
 }
 
@@ -553,7 +620,12 @@ ul.ruby-menu > li.ruby-menu-mega > div ul.ruby-list-with-images li {
   height: 50px;
 }
 
-ul.ruby-menu > li.ruby-menu-mega > div ul.ruby-list-with-images li span.ruby-list-desc {
+ul.ruby-menu
+  > li.ruby-menu-mega
+  > div
+  ul.ruby-list-with-images
+  li
+  span.ruby-list-desc {
   font-size: 11px;
   display: block;
   position: absolute;
@@ -611,7 +683,7 @@ span.ruby-c-date a {
 
 span.ruby-c-category a:hover,
 span.ruby-c-date a:hover {
-  color: #19ad86
+  color: #19ad86;
 }
 /*inline */
 div.ruby-c-inline {
@@ -651,35 +723,55 @@ span.ruby-c-content {
 }
 
 /* DEVICES EXCEPT MOBILE */
-@media(min-width:768px) {
-
+@media (min-width: 768px) {
   /* Ruby Transparent */
   div.ruby-wrapper.ruby-menu-transparent {
     background: none;
   }
 
-  div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu > li.ruby-active-menu-item > a {
+  div.ruby-wrapper.ruby-menu-transparent
+    > ul.ruby-menu
+    > li.ruby-active-menu-item
+    > a {
     background: none;
   }
 
-  div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu > li.ruby-menu-social > a {
+  div.ruby-wrapper.ruby-menu-transparent
+    > ul.ruby-menu
+    > li.ruby-menu-social
+    > a {
     border: none;
   }
 
-  div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu.ruby-menu-dividers > li > a {
+  div.ruby-wrapper.ruby-menu-transparent
+    > ul.ruby-menu.ruby-menu-dividers
+    > li
+    > a {
     border: none;
   }
 
   div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu > li:hover > a,
   div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu > li > a:hover,
-  div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu.ruby-menu-dividers > li:hover > a,
-  div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu.ruby-menu-dividers > li > a:hover {
+  div.ruby-wrapper.ruby-menu-transparent
+    > ul.ruby-menu.ruby-menu-dividers
+    > li:hover
+    > a,
+  div.ruby-wrapper.ruby-menu-transparent
+    > ul.ruby-menu.ruby-menu-dividers
+    > li
+    > a:hover {
     background: none;
     color: #e2e2e2;
   }
 
-  div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu > li.ruby-menu-social.ruby-menu-search > a:hover,
-  div.ruby-wrapper.ruby-menu-transparent > ul.ruby-menu > li.ruby-menu-social.ruby-menu-search:hover > a {
+  div.ruby-wrapper.ruby-menu-transparent
+    > ul.ruby-menu
+    > li.ruby-menu-social.ruby-menu-search
+    > a:hover,
+  div.ruby-wrapper.ruby-menu-transparent
+    > ul.ruby-menu
+    > li.ruby-menu-social.ruby-menu-search:hover
+    > a {
     background: none;
   }
 
@@ -729,18 +821,33 @@ span.ruby-c-content {
   }
 
   /* RUBY MEGA BLOG */
-  ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li > div {
+  ul.ruby-menu
+    > li.ruby-menu-mega-blog
+    > div
+    > ul.ruby-menu-mega-blog-nav
+    > li
+    > div {
     /* hide */
     visibility: hidden;
     opacity: 0;
   }
 
-  ul.ruby-menu > li.ruby-menu-mega-blog:hover > div > ul.ruby-menu-mega-blog-nav > li.ruby-active-menu-item > div {
+  ul.ruby-menu
+    > li.ruby-menu-mega-blog:hover
+    > div
+    > ul.ruby-menu-mega-blog-nav
+    > li.ruby-active-menu-item
+    > div {
     visibility: visible;
     opacity: 1;
   }
 
-  ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li:hover > div {
+  ul.ruby-menu
+    > li.ruby-menu-mega-blog
+    > div
+    > ul.ruby-menu-mega-blog-nav
+    > li:hover
+    > div {
     visibility: visible;
     opacity: 1;
     z-index: 101;
@@ -753,7 +860,12 @@ span.ruby-c-content {
     opacity: 0;
   }
 
-  ul.ruby-menu > li.ruby-menu-mega-shop:hover > div > ul > li.ruby-active-menu-item > div,
+  ul.ruby-menu
+    > li.ruby-menu-mega-shop:hover
+    > div
+    > ul
+    > li.ruby-active-menu-item
+    > div,
   ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li:hover > div {
     visibility: visible;
     opacity: 1;
@@ -763,11 +875,11 @@ span.ruby-c-content {
   ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a:after {
     height: 1px;
     position: absolute;
-    content: '';
+    content: "";
     background-color: #19ad86;
     width: 0;
   }
-  
+
   ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a:before {
     top: 10px;
     left: 5%;
@@ -784,42 +896,52 @@ span.ruby-c-content {
   }
 
   ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a:hover:before,
-  ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li.ruby-active-menu-item > a:before,
+  ul.ruby-menu
+    > li.ruby-menu-mega-shop
+    > div
+    > ul
+    > li.ruby-active-menu-item
+    > a:before,
   ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > a:hover:after,
-  ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li.ruby-active-menu-item > a:after,
+  ul.ruby-menu
+    > li.ruby-menu-mega-shop
+    > div
+    > ul
+    > li.ruby-active-menu-item
+    > a:after,
   ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li:hover > a:before,
   ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li:hover > a:after {
     width: 90%;
   }
 
   ul.ruby-menu > li > a:after {
-  	/* css down-arrows if has child item */
-  	font-family: "FontAwesome";
-  	text-decoration: none;
-  	content: '\f107';
-  	position: absolute;
-  	margin-left: 5px;
+    /* css down-arrows if has child item */
+    font-family: "FontAwesome";
+    text-decoration: none;
+    content: "\f107";
+    position: absolute;
+    margin-left: 5px;
   }
 
   ul.ruby-menu > li:hover > a:after {
     -webkit-transform: rotate(-180deg);
-  	-moz-transform: rotate(-180deg);
-  	-o-transform: rotate(-180deg);
-  	-ms-transform: rotate(-180deg);
-  	transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
   }
 
   ul.ruby-menu > li > ul > li > a:after,
   ul.ruby-menu > li > ul > li > ul > li > a:after,
   ul.ruby-menu > li > ul > li > ul > li > ul > li > a:after {
-  	/* css down-arrows if has child item */
-  	font-family: "FontAwesome";
-  	text-decoration: none;
-  	font-size: 16px;
-  	padding: 0;
-  	content: '\f105';
-  	position: absolute;
-  	right: 15px;
+    /* css down-arrows if has child item */
+    font-family: "FontAwesome";
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0;
+    content: "\f105";
+    position: absolute;
+    right: 15px;
   }
 
   ul.ruby-menu > li > ul > li:hover > a:after,
@@ -835,15 +957,23 @@ span.ruby-c-content {
   ul.ruby-menu > li > ul > li.ruby-open-to-left > a:after,
   ul.ruby-menu > li > ul > li > ul > li.ruby-open-to-left > a:after,
   ul.ruby-menu > li > ul > li > ul > li > ul > li.ruby-open-to-left > a:after {
-  	/* css down-arrows if has child item */
-  	content: '\f104';
-  	right: auto;
-  	left: 10px;
+    /* css down-arrows if has child item */
+    content: "\f104";
+    right: auto;
+    left: 10px;
   }
 
   ul.ruby-menu > li > ul > li.ruby-open-to-left:hover > a:after,
   ul.ruby-menu > li > ul > li > ul > li.ruby-open-to-left:hover > a:after,
-  ul.ruby-menu > li > ul > li > ul > li > ul > li.ruby-open-to-left:hover > a:after {
+  ul.ruby-menu
+    > li
+    > ul
+    > li
+    > ul
+    > li
+    > ul
+    > li.ruby-open-to-left:hover
+    > a:after {
     -webkit-transform: rotate(-180deg);
     -moz-transform: rotate(-180deg);
     -o-transform: rotate(-180deg);
@@ -851,8 +981,18 @@ span.ruby-c-content {
     transform: rotate(-180deg);
   }
 
-  ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li.ruby-active-menu-item > a:after,
-  ul.ruby-menu > li.ruby-menu-mega-blog > div > ul.ruby-menu-mega-blog-nav > li:hover > a:after {
+  ul.ruby-menu
+    > li.ruby-menu-mega-blog
+    > div
+    > ul.ruby-menu-mega-blog-nav
+    > li.ruby-active-menu-item
+    > a:after,
+  ul.ruby-menu
+    > li.ruby-menu-mega-blog
+    > div
+    > ul.ruby-menu-mega-blog-nav
+    > li:hover
+    > a:after {
     content: "";
     position: absolute;
     right: 0;
@@ -863,5 +1003,4 @@ span.ruby-c-content {
     border-width: 6px 8px 6px 0;
     border-color: transparent #fff transparent transparent;
   }
-
 }
