@@ -4,12 +4,36 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var dotenv = require('dotenv');
+dotenv.config();
+
+const mariadb = require('mariadb/callback');
+const db = mariadb.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT
+});
+
+// connect to database
+db.connect((err) => {
+if (err) {
+console.log("Unable to connect to database due to error: " + err);
+} else {
+console.log("Connected to DB");
+}
+});
+
+global.db = db;
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contactRouter = require('./routes/contact')
 var aboutRouter = require('./routes/about')
 var helpRouter = require('./routes/help')
+var gigRouter = require('./routes/gigs')
 var app = express();
 
 // view engine setup
@@ -29,6 +53,8 @@ app.use('/users', usersRouter);
 app.use('/contact', contactRouter);
 app.use('/about', aboutRouter)
 app.use('/help', helpRouter)
+app.use('/gigs', gigRouter)
+
 
 
 
@@ -41,8 +67,9 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
+  res.locals.stack = err.stack
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-  res.locals.errcode = "404"
+  // res.locals.errcode = "404"
 
   // render the error page
   res.status(err.status || 500);

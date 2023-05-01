@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <h1> Details </h1>
+        <table>
+        <tr> <td> Gig ID: </td> <td> <%= onerec.service_id %> </td> </tr>
+        <tr> <td> Gig Title: </td> <td> <%= onerec.title %> </td> </tr>
+        <!-- <tr> <td> Image: </td> <td> <%= onerec.prodimage %> </td> </tr> -->
+        <tr> <td> Gig Description: </td> <td> <%= onerec.description %> </td> </tr>
+        <tr> <td> Gig Price: </td> <td> <%= onerec.price %> </td> </tr>
+        <tr> <td> Gig Delivery Time: </td> <td> <%= onerec.delivery_time %> </td> </tr>
+  
+        </table>
+
+    </main>
+    
+    <%- include('../partials/footer') %>
+</body>
+</html>

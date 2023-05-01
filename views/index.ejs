@@ -11,11 +11,10 @@
 
 <body>
 
-    <header>
-        <%- include('partials/header') %>
-    </header>
     
-
+        <%- include('partials/header') %>
+    
+    
         <main>
             <h1>index stuff here</h1>
             <h2>Books Catalog</h2>
@@ -25,7 +24,7 @@
             <% passedData.forEach((element, index) => { %>
                 <p>Title:<%= element.title %> </p>
                 <p>Author:<%= element.author %> </p>
-                <p>Published Date:<%= element.publishedAt %> </p>
+                 <p>Published Date:<%= element.publishedAt %> </p>
                 
             <% }); %>
             

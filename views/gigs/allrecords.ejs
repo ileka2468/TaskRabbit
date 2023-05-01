@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <% if (allrecs.length > 0) {%>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Gig Title</th>
+                    <th>Gig Description</th>
+                    <th>Price</th>
+                    <th>Delivery Time</th>
+                </tr>
+            <% allrecs.forEach((recref, index) => { %>
+            <tr>
+            <td><%= recref.service_id %></td>
+            <td><%= recref.title %></td>
+            <td><%= recref.description %></td>
+            <td><%= recref.price %></td>
+            <td><%= recref.delivery_time %></td>
+            <td><a href='/gigs/<%= recref.service_id %>/show'>
+            Details</a></td>
+            <td><a href='/gigs/<%= recref.service_id %>/edit'>Edit</a></td>
+            <td><a href='/gigs/<%= recref.service_id %>/delete'
+            onclick="return confirm('Are you sure you want to delete this record?');">Delete</a></td>
+            </tr>
+            <% }); %>
+            </table>
+            <% } else { %>
+            <p>Not Records Available</p>
+            <% } %>
+            <p> <a href='/gigs/addrecord'>Add New</a> </p>
+    </main>
+    
+    <%- include('../partials/footer') %>
+</body>
+</html>
