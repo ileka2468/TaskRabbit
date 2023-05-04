@@ -3,16 +3,17 @@ var router = express.Router()
 // ==================================================
 // Route to list all records. Display view to list all records
 // ==================================================
+
 router.get('/', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time FROM gigs'
+    "SELECT user_id, firstname, lastname, email, password, type FROM users"
   // execute query
   db.query(query, (err, result) => {
     if (err) {
       console.log(err)
       res.render('error')
     }
-    res.render('gigs/allrecords', { allrecs: result })
+    res.render('users/allrecords', { allrecs: result })
   })
 })
 
@@ -21,7 +22,7 @@ router.get('/', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/show', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time FROM gigs WHERE service_id = ' +
+    'SELECT user_id, firstname, lastname, email, password, type FROM users WHERE user_id = ' +
     req.params.recordid
   // execute query
   db.query(query, (err, result) => {
@@ -29,7 +30,7 @@ router.get('/:recordid/show', function (req, res, next) {
       console.log(err)
       res.render('error')
     } else {
-      res.render('gigs/onerec', { onerec: result[0] })
+      res.render('users/onerec', { onerec: result[0] })
     }
   })
 })
@@ -39,7 +40,7 @@ router.get('/:recordid/show', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/edit', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time, seller_id, gig_category_id FROM gigs WHERE service_id = ' +
+    'SELECT user_id, firstname, lastname, email, password, type FROM users WHERE user_id = ' +
     req.params.recordid
   // execute query
   db.query(query, (err, result) => {
@@ -47,8 +48,7 @@ router.get('/:recordid/edit', function (req, res, next) {
       console.log(err)
       res.render('error')
     } else {
-      console.log(result[0].description)
-      res.render('gigs/editrec', { onerec: result[0] })
+      res.render('users/editrec', { onerec: result[0] })
     }
   })
 })
@@ -57,7 +57,7 @@ router.get('/:recordid/edit', function (req, res, next) {
 // Route to show empty form to obtain input form end-user.
 // ==================================================
 router.get('/addrecord', function (req, res, next) {
-  res.render('gigs/addrec')
+  res.render('users/addrec')
 })
 
 // ==================================================
@@ -65,23 +65,22 @@ router.get('/addrecord', function (req, res, next) {
 // ==================================================
 router.post('/', function (req, res, next) {
   let insertquery =
-    'INSERT INTO gigs (title, description, price, delivery_time, seller_id, gig_category_id) VALUES (?, ?, ?, ?, ?, ?)'
+    'INSERT INTO users (firstname, lastname, email, password, type) VALUES (?, ?, ?, ?, ?)'
   db.query(
     insertquery,
     [
-      req.body.title,
-      req.body.description,
-      req.body.price,
-      req.body.time,
-      req.body.sellerID,
-      req.body.gigCatID
+      req.body.firstname,
+      req.body.lastname,
+      req.body.email,
+      req.body.password,
+      req.body.type
     ],
     (err, result) => {
       if (err) {
         console.log(err)
         res.render('error')
       } else {
-        res.redirect('/gigs')
+        res.redirect('/users')
       }
     }
   )
@@ -92,24 +91,23 @@ router.post('/', function (req, res, next) {
 // ==================================================
 router.post('/save', function (req, res, next) {
   let updatequery =
-    'UPDATE gigs SET title = ?, description = ?, price = ?, delivery_time = ?, seller_id = ?, gig_category_id = ? WHERE service_id = ' +
-    req.body.service_id
+    'UPDATE users SET firstname = ?, lastname = ?, email = ?, password = ?, type = ? WHERE user_id = ' +
+    req.body.user_id
   db.query(
     updatequery,
     [
-      req.body.title,
-      req.body.description,
-      req.body.price,
-      req.body.time,
-      req.body.sellerID,
-      req.body.gigCatID
+      req.body.firstname,
+      req.body.lastname,
+      req.body.email,
+      req.body.password,
+      req.body.type
     ],
     (err, result) => {
       if (err) {
         console.log(err)
         res.render('error')
       } else {
-        res.redirect('/gigs')
+        res.redirect('/users')
       }
     }
   )
@@ -121,14 +119,14 @@ router.post('/save', function (req, res, next) {
 // Route to delete one specific record.
 // ==================================================
 router.get('/:recordid/delete', function (req, res, next) {
-  let query = "DELETE FROM gigs WHERE service_id = " + req.params.recordid;
+  let query = "DELETE FROM users WHERE user_id = " + req.params.recordid;
   // execute query
   db.query(query, (err, result) => {
     if (err) {
       console.log(err);
       res.render('error');
     } else {
-      res.redirect('/gigs');
+      res.redirect('/users');
     }
   });
 });

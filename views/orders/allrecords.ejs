@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+<%- include('../partials/header') %>
+
+<main>
+
+    <% if (allrecs.length > 0) {%>
+        <table border="1">
+            <tr>
+                <th> Order ID</th>
+                <th> Buyer ID</th>
+                <th> Seller ID</th>
+                <th> Service ID</th>
+                <th> Fulfilled </th>
+                <th> Order Time </th>
+                <th> Price </th>
+            </tr>
+            <% allrecs.forEach((recref, index) => { %>
+                <tr>
+                    <td><%= recref.order_id %></td>
+                    <td><%= recref.buyer_id %></td>
+                    <td><%= recref.seller_id %></td>
+                    <td><%= recref.service_id %></td>
+                    <td><%= recref.fulfilled %></td>
+                    <td><%= recref.created_at %></td>
+                    <td><%= recref.priceAtSale %></td>
+                    <td><a href='/orders/<%= recref.order_id %>/show'>
+                            Details</a></td>
+                    <td><a href='/orders/<%= recref.order_id %>/edit'>Edit</a></td>
+                    <td><a href='/orders/<%= recref.order_id %>/delete'
+                           onclick="return confirm('Are you sure you want to delete this record?');">Delete</a></td>
+                </tr>
+            <% }); %>
+        </table>
+    <% } else { %>
+        <p>Not Records Available</p>
+    <% } %>
+    <p> <a href='/orders/addrecord'>Add New</a> </p>
+</main>
+
+<%- include('../partials/footer') %>
+</body>
+</html>

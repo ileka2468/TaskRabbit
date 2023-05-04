@@ -18,11 +18,11 @@ const db = mariadb.createConnection({
 
 // connect to database
 db.connect((err) => {
-if (err) {
-console.log("Unable to connect to database due to error: " + err);
-} else {
-console.log("Connected to DB");
-}
+  if (err) {
+    console.log("Unable to connect to database due to error: " + err);
+  } else {
+    console.log("Connected to DB");
+  }
 });
 
 global.db = db;
@@ -33,7 +33,17 @@ var usersRouter = require('./routes/users');
 var contactRouter = require('./routes/contact')
 var aboutRouter = require('./routes/about')
 var helpRouter = require('./routes/help')
+var privacyRouter = require('./routes/priavcy')
+
 var gigRouter = require('./routes/gigs')
+var categoryRouter = require('./routes/categories')
+var gig_categoryRouter = require('./routes/gig_categories')
+var interestRouter = require('./routes/interests')
+var menucategoryRouter = require('./routes/menucategories')
+var orderRouter = require('./routes/orders')
+var subcategoryRouter = require('./routes/subcategories')
+var userRouter = require('./routes/users1')
+
 var app = express();
 
 // view engine setup
@@ -49,22 +59,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // middlewear for handling routes, gets passed the routerOBJ for each view file and checks its module export for the corresponding path and calls the correct routeer handler to render content
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 app.use('/contact', contactRouter);
 app.use('/about', aboutRouter)
 app.use('/help', helpRouter)
+app.use('/privacy', privacyRouter)
+
 app.use('/gigs', gigRouter)
-
-
+app.use('/categories', categoryRouter)
+app.use('/gigcategories', gig_categoryRouter)
+app.use('/interests', interestRouter)
+app.use('/menucategories', menucategoryRouter)
+app.use('/orders', orderRouter)
+app.use('/subcategories', subcategoryRouter)
+app.use('/users', userRouter)
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.stack = err.stack

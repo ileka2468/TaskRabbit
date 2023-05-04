@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <h1> Order Details </h1>
+        <table>
+        <tr> <td> Order ID: </td> <td> <%= onerec.order_id %> </td> </tr>
+        <tr> <td> Buyer ID: </td> <td> <%= onerec.buyer_id %> </td> </tr>
+        <tr> <td> Seller ID: </td> <td> <%= onerec.seller_id %> </td> </tr>
+        <tr> <td> Service ID: </td> <td> <%= onerec.service_id %> </td> </tr>
+        <tr> <td> Fulfilled: </td> <td> <%= onerec.fulfilled %> </td> </tr>
+        <tr> <td> Order Time: </td> <td> <%= onerec.created_at %> </td> </tr>
+        <tr> <td> Price: </td> <td> <%= onerec.priceAtSale %> </td> </tr>
+        <!-- <tr> <td> Image: </td> <td> <%= onerec.prodimage %> </td> </tr> -->
+        </table>
+
+    </main>
+    
+    <%- include('../partials/footer') %>
+</body>
+</html>

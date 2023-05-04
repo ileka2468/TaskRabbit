@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <h1> Edit Record</h1>
+        <form action="/users/save" method="post">
+            <input type="hidden" name="user_id" value="<%= onerec.user_id %>" >
+            <table>
+                <tr> <td>  First Name: </td> <td> <input type="text" name="firstname" value="<%= onerec.firstname %>" required> </td> </tr>
+                <tr> <td>  Last Name: </td> <td> <input type="text" name="lastname" value="<%= onerec.lastname %>" required> </td> </tr>
+                <tr> <td>  Email: </td> <td> <input type="text" name="email" value="<%= onerec.email %>" required> </td> </tr>
+                <tr> <td>  Password: </td> <td> <input type="text" name="password" value="<%= onerec.password %>" required> </td> </tr>
+                <tr> <td>  Type: </td> <td> <input type="text" name="type" value="<%= onerec.type %>" required> </td> </tr>
+                <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
+
+            </table>
+            <button type="submit">Save</button>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
+

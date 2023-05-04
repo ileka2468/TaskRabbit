@@ -5,14 +5,14 @@ var router = express.Router()
 // ==================================================
 router.get('/', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time FROM gigs'
+      'SELECT menucategory_id, cat_name FROM menucategories'
   // execute query
   db.query(query, (err, result) => {
     if (err) {
       console.log(err)
       res.render('error')
     }
-    res.render('gigs/allrecords', { allrecs: result })
+    res.render('menucategories/allrecords', { allrecs: result })
   })
 })
 
@@ -21,15 +21,15 @@ router.get('/', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/show', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time FROM gigs WHERE service_id = ' +
-    req.params.recordid
+      'SELECT menucategory_id, cat_name FROM menucategories WHERE menucategory_id = ' +
+      req.params.recordid
   // execute query
   db.query(query, (err, result) => {
     if (err) {
       console.log(err)
       res.render('error')
     } else {
-      res.render('gigs/onerec', { onerec: result[0] })
+      res.render('menucategories/onerec', { onerec: result[0] })
     }
   })
 })
@@ -39,16 +39,15 @@ router.get('/:recordid/show', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/edit', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time, seller_id, gig_category_id FROM gigs WHERE service_id = ' +
-    req.params.recordid
+      'SELECT menucategory_id, cat_name FROM menucategories WHERE menucategory_id = ' +
+      req.params.recordid
   // execute query
   db.query(query, (err, result) => {
     if (err) {
       console.log(err)
       res.render('error')
     } else {
-      console.log(result[0].description)
-      res.render('gigs/editrec', { onerec: result[0] })
+      res.render('menucategories/editrec', { onerec: result[0] })
     }
   })
 })
@@ -57,7 +56,7 @@ router.get('/:recordid/edit', function (req, res, next) {
 // Route to show empty form to obtain input form end-user.
 // ==================================================
 router.get('/addrecord', function (req, res, next) {
-  res.render('gigs/addrec')
+  res.render('menucategories/addrec');
 })
 
 // ==================================================
@@ -65,25 +64,20 @@ router.get('/addrecord', function (req, res, next) {
 // ==================================================
 router.post('/', function (req, res, next) {
   let insertquery =
-    'INSERT INTO gigs (title, description, price, delivery_time, seller_id, gig_category_id) VALUES (?, ?, ?, ?, ?, ?)'
+      'INSERT INTO menucategories (cat_name) VALUES (?)'
   db.query(
-    insertquery,
-    [
-      req.body.title,
-      req.body.description,
-      req.body.price,
-      req.body.time,
-      req.body.sellerID,
-      req.body.gigCatID
-    ],
-    (err, result) => {
-      if (err) {
-        console.log(err)
-        res.render('error')
-      } else {
-        res.redirect('/gigs')
+      insertquery,
+      [
+        req.body.menu_category_name
+      ],
+      (err, result) => {
+        if (err) {
+          console.log(err)
+          res.render('error')
+        } else {
+          res.redirect('/menucategories/')
+        }
       }
-    }
   )
 })
 
@@ -92,26 +86,21 @@ router.post('/', function (req, res, next) {
 // ==================================================
 router.post('/save', function (req, res, next) {
   let updatequery =
-    'UPDATE gigs SET title = ?, description = ?, price = ?, delivery_time = ?, seller_id = ?, gig_category_id = ? WHERE service_id = ' +
-    req.body.service_id
+      'UPDATE menucategories SET cat_name = ? WHERE menucategory_id = ' +
+      req.body.menu_category_id
   db.query(
-    updatequery,
-    [
-      req.body.title,
-      req.body.description,
-      req.body.price,
-      req.body.time,
-      req.body.sellerID,
-      req.body.gigCatID
-    ],
-    (err, result) => {
-      if (err) {
-        console.log(err)
-        res.render('error')
-      } else {
-        res.redirect('/gigs')
+      updatequery,
+      [
+        req.body.menu_category_name
+      ],
+      (err, result) => {
+        if (err) {
+          console.log(err)
+          res.render('error')
+        } else {
+          res.redirect('/menucategories')
+        }
       }
-    }
   )
 })
 
@@ -121,14 +110,14 @@ router.post('/save', function (req, res, next) {
 // Route to delete one specific record.
 // ==================================================
 router.get('/:recordid/delete', function (req, res, next) {
-  let query = "DELETE FROM gigs WHERE service_id = " + req.params.recordid;
+  let query = "DELETE FROM menucategories WHERE menucategory_id = " + req.params.recordid;
   // execute query
   db.query(query, (err, result) => {
     if (err) {
       console.log(err);
       res.render('error');
     } else {
-      res.redirect('/gigs');
+      res.redirect('/menucategories');
     }
   });
 });

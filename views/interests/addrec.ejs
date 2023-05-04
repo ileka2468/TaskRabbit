@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <h1> New Record</h1>
+        <form action="/interests" method="post">
+            <table>
+                <tr> <td> User ID: </td> <td> <input type="text" name="user_id" required> </td> </tr>
+                <tr> <td> Category ID: </td> <td> <input type="text" name="category_id" required> </td> </tr>
+
+                <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
+            </table>
+            <button type="submit">Save</button>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
+

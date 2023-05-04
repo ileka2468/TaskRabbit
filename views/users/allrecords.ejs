@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+<%- include('../partials/header') %>
+
+<main>
+
+    <% if (allrecs.length > 0) {%>
+        <table border="1">
+            <tr>
+                <th> User ID</th>
+                <th> First Name</th>
+                <th> Last Name</th>
+                <th> Email</th>
+                <th> Password</th>
+                <th> Type</th>
+            </tr>
+            <% allrecs.forEach((recref, index) => { %>
+                <tr>
+                    <td><%= recref.user_id %></td>
+                    <td><%= recref.firstname %></td>
+                    <td><%= recref.lastname %></td>
+                    <td><%= recref.email %></td>
+                    <td><%= recref.password %></td>
+                    <td><%= recref.type %></td>
+
+                    <td><a href='/users/<%= recref.user_id %>/show'>
+                            Details</a></td>
+                    <td><a href='/users/<%= recref.user_id %>/edit'>Edit</a></td>
+                    <td><a href='/users/<%= recref.user_id %>/delete'
+                           onclick="return confirm('Are you sure you want to delete this record?');">Delete</a></td>
+                </tr>
+            <% }); %>
+        </table>
+    <% } else { %>
+        <p>Not Records Available</p>
+    <% } %>
+    <p> <a href='/users/addrecord'>Add New</a> </p>
+</main>
+
+<%- include('../partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <h1> Edit Record</h1>
+        <form action="/orders/save" method="post">
+            <input type="hidden" name="order_id" value="<%= onerec.order_id%>" >
+            <table>
+                <tr> <td> Buyer ID: </td> <td> <input type="text" name="buyer_id" value="<%= onerec.buyer_id %>" required> </td> </tr>
+                <tr> <td> Seller ID: </td> <td> <input type="text" name="seller_id" value="<%= onerec.seller_id %>" required> </td> </tr>
+                <tr> <td> Service ID: </td> <td> <input type="text" name="service_id" value="<%= onerec.service_id %>" required> </td> </tr>
+                <tr> <td> Fulfilled Status: </td> <td> <input type="text" name="fulfilled" value="<%= onerec.fulfilled %>" required> </td> </tr>
+                <tr> <td> Date Order Placed: </td> <td> <input type="date" name="created_at" value="<%= onerec.created_at %>" required> </td> </tr>
+                <tr> <td> Price (Time of Sale): </td> <td> <input type="text" name="priceAtSale" value="<%= onerec.priceAtSale %>" required> </td> </tr>
+                <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
+            </table>
+            <button type="submit">Save</button>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <h1> New Record</h1>
+        <form action="/menucategories" method="post">
+            <table>
+                <tr> <td> Menu Category Name: </td> <td> <input type="text" name="menu_category_name" required> </td> </tr>
+                <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
+            </table>
+            <button type="submit">Save</button>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <h1> Edit Record</h1>
+        <form action="/gigs/save" method="post">
+            <input type="hidden" name="service_id" value="<%= onerec.service_id %>" >
+            <table>
+            <tr> <td> Gig Title: </td> <td> <input type="text" name="title" value="<%= onerec.title %>" required> </td> </tr>
+            <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
+            <tr> <td> Gig Description: </td> <td> <textarea id="description" name="description" rows="10" cols="30" placeholder="Description" data-description="<%= onerec.description %>" required></textarea> </td> </tr>
+            <script>
+                var descBox = document.getElementById('description');
+                descBox.textContent = descBox.getAttribute('data-description')
+            </script>
+            <tr> <td> Gig Price: </td> <td> <input type="text" name="price" value="<%= onerec.price %>" required> </td> </tr>
+            <tr> <td> Gig Delivery Time: </td> <td> <input type="text" name="time" value="<%= onerec.delivery_time %>" required> </td> </tr>
+            <tr> <td> Seller ID: </td> <td> <input type="text" name="sellerID" value="<%= onerec.seller_id %>" required> </td> </tr>
+            <tr> <td> Gig Category ID: </td> <td> <input type="text" name="gigCatID" value="<%= onerec.gig_category_id %>" required> </td> </tr>
+            </table>
+            <button type="submit">Save</button>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>
+

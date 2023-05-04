@@ -5,14 +5,14 @@ var router = express.Router()
 // ==================================================
 router.get('/', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time FROM gigs'
+    'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, priceAtSale FROM orders'
   // execute query
   db.query(query, (err, result) => {
     if (err) {
       console.log(err)
       res.render('error')
     }
-    res.render('gigs/allrecords', { allrecs: result })
+    res.render('orders/allrecords', { allrecs: result })
   })
 })
 
@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/show', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time FROM gigs WHERE service_id = ' +
+    'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, priceAtSale FROM orders WHERE order_id = ' +
     req.params.recordid
   // execute query
   db.query(query, (err, result) => {
@@ -29,7 +29,7 @@ router.get('/:recordid/show', function (req, res, next) {
       console.log(err)
       res.render('error')
     } else {
-      res.render('gigs/onerec', { onerec: result[0] })
+      res.render('orders/onerec', { onerec: result[0] })
     }
   })
 })
@@ -39,7 +39,7 @@ router.get('/:recordid/show', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/edit', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time, seller_id, gig_category_id FROM gigs WHERE service_id = ' +
+    'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, priceAtSale FROM orders WHERE order_id = ' +
     req.params.recordid
   // execute query
   db.query(query, (err, result) => {
@@ -48,7 +48,7 @@ router.get('/:recordid/edit', function (req, res, next) {
       res.render('error')
     } else {
       console.log(result[0].description)
-      res.render('gigs/editrec', { onerec: result[0] })
+      res.render('orders/editrec', { onerec: result[0] })
     }
   })
 })
@@ -57,7 +57,7 @@ router.get('/:recordid/edit', function (req, res, next) {
 // Route to show empty form to obtain input form end-user.
 // ==================================================
 router.get('/addrecord', function (req, res, next) {
-  res.render('gigs/addrec')
+  res.render('orders/addrec')
 })
 
 // ==================================================
@@ -65,23 +65,23 @@ router.get('/addrecord', function (req, res, next) {
 // ==================================================
 router.post('/', function (req, res, next) {
   let insertquery =
-    'INSERT INTO gigs (title, description, price, delivery_time, seller_id, gig_category_id) VALUES (?, ?, ?, ?, ?, ?)'
+    'INSERT INTO orders (buyer_id, seller_id, service_id, fulfilled, created_at, priceAtSale) VALUES (?, ?, ?, ?, ?, ?)'
   db.query(
     insertquery,
     [
-      req.body.title,
-      req.body.description,
-      req.body.price,
-      req.body.time,
-      req.body.sellerID,
-      req.body.gigCatID
+      req.body.buyer_id,
+      req.body.seller_id,
+      req.body.service_id,
+      req.body.fulfilled,
+      req.body.created_at,
+      req.body.priceAtSale
     ],
     (err, result) => {
       if (err) {
         console.log(err)
         res.render('error')
       } else {
-        res.redirect('/gigs')
+        res.redirect('/orders')
       }
     }
   )
@@ -91,44 +91,44 @@ router.post('/', function (req, res, next) {
 // Route to save edited data in database.
 // ==================================================
 router.post('/save', function (req, res, next) {
+  console.log(req.body.buyer_id)
   let updatequery =
-    'UPDATE gigs SET title = ?, description = ?, price = ?, delivery_time = ?, seller_id = ?, gig_category_id = ? WHERE service_id = ' +
-    req.body.service_id
+    'UPDATE orders SET buyer_id = ?, seller_id = ?, service_id = ?, fulfilled = ?, created_at = ?, priceAtSale = ? WHERE order_id = ' +
+    req.body.order_id
   db.query(
     updatequery,
     [
-      req.body.title,
-      req.body.description,
-      req.body.price,
-      req.body.time,
-      req.body.sellerID,
-      req.body.gigCatID
+      req.body.buyer_id,
+      req.body.seller_id,
+      req.body.service_id,
+      req.body.fulfilled,
+      req.body.created_at,
+      req.body.priceAtSale
     ],
     (err, result) => {
       if (err) {
         console.log(err)
         res.render('error')
       } else {
-        res.redirect('/gigs')
+        res.redirect('/orders')
       }
     }
   )
 })
 
 
-
 // ==================================================
 // Route to delete one specific record.
 // ==================================================
 router.get('/:recordid/delete', function (req, res, next) {
-  let query = "DELETE FROM gigs WHERE service_id = " + req.params.recordid;
+  let query = "DELETE FROM orders WHERE order_id = " + req.params.recordid;
   // execute query
   db.query(query, (err, result) => {
     if (err) {
       console.log(err);
       res.render('error');
     } else {
-      res.redirect('/gigs');
+      res.redirect('/orders');
     }
   });
 });
