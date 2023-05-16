@@ -19,6 +19,7 @@
                     <th>Gig Description</th>
                     <th>Price</th>
                     <th>Delivery Time</th>
+                    <th>Homepage Status</th>
                 </tr>
             <% allrecs.forEach((recref, index) => { %>
             <tr>
@@ -27,6 +28,7 @@
             <td><%= recref.description %></td>
             <td><%= recref.price %></td>
             <td><%= recref.delivery_time %></td>
+            <td><%= recref.homepage %></td>
             <td><a href='/gigs/<%= recref.service_id %>/show'>
             Details</a></td>
             <td><a href='/gigs/<%= recref.service_id %>/edit'>Edit</a></td>

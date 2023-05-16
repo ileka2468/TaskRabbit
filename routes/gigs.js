@@ -5,7 +5,7 @@ var router = express.Router()
 // ==================================================
 router.get('/', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time FROM gigs'
+    'SELECT service_id, title, description, price, delivery_time, homepage FROM gigs'
   // execute query
   db.query(query, (err, result) => {
     if (err) {
@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/show', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time FROM gigs WHERE service_id = ' +
+    'SELECT service_id, title, description, price, delivery_time, homepage FROM gigs WHERE service_id = ' +
     req.params.recordid
   // execute query
   db.query(query, (err, result) => {
@@ -39,7 +39,7 @@ router.get('/:recordid/show', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/edit', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time, seller_id, gig_category_id FROM gigs WHERE service_id = ' +
+    'SELECT service_id, title, description, price, delivery_time, seller_id, gig_category_id, homepage FROM gigs WHERE service_id = ' +
     req.params.recordid
   // execute query
   db.query(query, (err, result) => {
@@ -92,17 +92,19 @@ router.post('/', function (req, res, next) {
 // ==================================================
 router.post('/save', function (req, res, next) {
   let updatequery =
-    'UPDATE gigs SET title = ?, description = ?, price = ?, delivery_time = ?, seller_id = ?, gig_category_id = ? WHERE service_id = ' +
+    'UPDATE gigs SET title = ?, description = ?, price = ?, delivery_time = ?, seller_id = ?, gig_category_id = ?, homepage = ? WHERE service_id = ' +
     req.body.service_id
   db.query(
     updatequery,
     [
-      req.body.title,
-      req.body.description,
-      req.body.price,
-      req.body.time,
-      req.body.sellerID,
-      req.body.gigCatID
+        req.body.title,
+        req.body.description,
+        req.body.price,
+        req.body.time,
+        req.body.sellerID,
+        req.body.gigCatID,
+        req.body.homepage
+
     ],
     (err, result) => {
       if (err) {

@@ -5,16 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('partials/head') %>
     <link rel="stylesheet" href="/stylesheets/error.css">
         <title>Something goofed</title>
 </head>
 
 <body>
+    <%- include('partials/header') %>
+
+
     <div id="main">
+
         <div class="fof">
-            <h1>Error <%= message %>
-            </h1>
-            <h2>Oops! Well that's embarassing. </h2>
+            <h2><span class="span-h2">Oops!</span> Well that's embarrassing. </h2>
+            <img src="/img/error.jpg" alt="">
             <h3>Check back later</h3>
             <a href="/">
                 <button class="button2">
@@ -25,7 +29,8 @@
         </div>
         
     </div>
-    <%= stack %>
+
+    <%- include('partials/footer') %>
 
 </body>
 

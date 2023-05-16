@@ -44,6 +44,8 @@ var orderRouter = require('./routes/orders')
 var subcategoryRouter = require('./routes/subcategories')
 var userRouter = require('./routes/users1')
 
+var reportsRouter = require('./routes/reports')
+
 var app = express();
 
 // view engine setup
@@ -73,6 +75,7 @@ app.use('/menucategories', menucategoryRouter)
 app.use('/orders', orderRouter)
 app.use('/subcategories', subcategoryRouter)
 app.use('/users', userRouter)
+app.use('/reports', reportsRouter)
 
 
 // catch 404 and forward to error handler

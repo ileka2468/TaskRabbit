@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/index.css">
     <title>Index page</title>
     <%- include('partials/head') %>
 </head>
@@ -16,17 +17,11 @@
     
     
         <main>
-            <h1>index stuff here</h1>
-            <h2>Books Catalog</h2>
-            <h1><%= passedData %></h1>
 
-        
-            <% passedData.forEach((element, index) => { %>
-                <p>Title:<%= element.title %> </p>
-                <p>Author:<%= element.author %> </p>
-                 <p>Published Date:<%= element.publishedAt %> </p>
-                
-            <% }); %>
+            <div class="ad-banner">
+                <img src="img/ads/ad1.png" alt="Ad banner">
+            </div>
+
             
         </main>
 
