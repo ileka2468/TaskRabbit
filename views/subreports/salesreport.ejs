@@ -5,16 +5,33 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <%- include('head')%>
+    <link rel="stylesheet" href="/stylesheets/reports.css">
+    <%- include('../partials/head')%>
     <title>Document</title>
 </head>
 
 <body>
+    <%- include('../partials/header')%>
+<main>
+    <p class="title">Sales Report</p>
 
-    <main>
-        <%- include('header')%>
-    </main>
 
-<%- include('footer')%>
+    <% records.forEach((result, index ) =>{ %>
+    <div class="single-report">
+        <h4>Order ID: <%= result.order_id %></h4>
+        <h4>Buyer ID: <%= result.buyer_id %></h4>
+        <h4>Seller ID: <%= result.seller_id %></h4>
+        <h4>Service ID: <%= result.service_id %></h4>
+        <h4>Fulfilled: <%= result.fulfilled %></h4>
+        <h4>Time of Order: <%= result.created_at %></h4>
+        <h4>Price at Sale: <%= result.priceAtSale %></h4>
+        <hr>
+    </div>
+    <% }); %>
+
+
+</main>
+
+    <%- include('../partials/footer')%>
 </body>
 </html>
