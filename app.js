@@ -90,6 +90,7 @@ app.use(function (err, req, res, next) {
   res.locals.stack = err.stack
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   // res.locals.errcode = "404"
+  console.log(err.stack)
 
   // render the error page
   res.status(err.status || 500);

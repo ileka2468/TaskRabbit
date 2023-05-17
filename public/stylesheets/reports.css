@@ -1,0 +1,23 @@
+.m-button{
+    padding: 1em;
+    background-color: #26b379;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+
+footer{
+    margin-top: 10em;
+}
+
+.title{
+    text-align: center;
+    font-size: 4em;
+    margin-top: 2em;
+}
+
+
+.report-link-container{
+    display: flex;
+    justify-content: center;
+}

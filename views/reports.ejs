@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%- include('partials/head')%>
+    <link rel="stylesheet" href="/stylesheets/reports.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <%- include('partials/header')%>
+
+        <p class="title">Reports</p>
+
+        <div class="report-link-container">
+            <a href="/reports/customers" class="m-button">Customer Report</a>
+            <a href="/reports/sales" class="m-button">Sales Report</a>
+            <a href="/reports/products" class="m-button">Product Report</a>
+        </div>
+    </main>
+
+<%- include('partials/footer')%>
+</body>
+</html>

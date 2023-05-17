@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/reports.css">
+    <%- include('../partials/head')%>
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('../partials/header')%>
+<main>
+    <p class="title">Customer Report</p>
+
+
+    <% records.forEach((result, index ) =>{ %>
+    <div class="single-report">
+        <h4>User ID: <%= result.user_id %></h4>
+        <h4>Firstname: <%= result.firstname %></h4>
+        <h4>Lastname: <%= result.lastname %></h4>
+        <h4>Email: <%= result.email %></h4>
+        <h4>Password: <%= result.password %></h4>
+        <h4>Account Type: <%= result.type %></h4>
+        <hr>
+    </div>
+    <% }); %>
+
+
+</main>
+
+    <%- include('../partials/footer')%>
+</body>
+</html>
