@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,600&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -5,8 +6,8 @@
 }
 
 main{
-    margin: 0;
-    padding: 0;
+    margin-left: .5em;
+    margin-right: .5em;
 }
 
 .ad-banner img{
@@ -22,12 +23,70 @@ main{
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px; /* adjust this value for desired space between items */
-    margin-bottom: 10em;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; /* adjust this value for desired space between items */
+    margin-bottom: 5em;
 }
 
 .product-item {
     border: 1px solid lightgrey;
-    height: 20em;
+    height: auto;
+    border-radius: .7em;
+    box-shadow: 1px 1px grey;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gig-title{
+    font-family: 'Poppins';
+    font-size: 1.2em;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.gig-description{
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.gig-delivery-time{
+    margin-bottom: 1em;
+}
+
+.buy-button{
+    border: none;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background-color: #26b379;
+    margin-top: auto;
+    color: white;
+    font-size: 1.3em;
+    font-weight: 400;
+    border-radius: 3em;
+    margin-bottom: 1em;
+
+
+}
+
+.buy-button:hover{
+    background-color: #389a74;
+    cursor: pointer;
+    box-shadow: 1px 1px gray;
+}
+
+
+.gig-price{
+    margin-bottom: 1em;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.gig-image{
+    width: 400px;
 }

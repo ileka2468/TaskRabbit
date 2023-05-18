@@ -22,10 +22,14 @@
                 <% allrecs.forEach((recref, index) => { %>
                 <div class="product-item">
                     <!-- Product details go here -->
-                    <p>Title: <%= recref.title %></p>
-                    <p>Price: $<%= recref.price %></p>
-                    <p>Description: <%= recref.description %></p>
-                    <p>Delivery time: <%= recref.delivery_time %> days</p>
+                    <p class="gig-title"><%= recref.title %></p>
+                    <img src="img/gig_img/<%= recref.gigimage%>" alt="" class="gig-image">
+                    <p class="gig-description"><%= recref.description %></p>
+                    <p class="gig-delivery-time">Delivery time: <%= recref.delivery_time %> days</p>
+                    <p class="gig-price">$<%= recref.price %></p>
+
+                    <button class="buy-button">Purchase</button>
+
                 </div>
 
 
@@ -34,12 +38,18 @@
         <% } %>
 
 
-
-
     </div>
 
     <div class="ad-banner">
-        <img src="img/ads/ad1.png" alt="Ad banner">
+
+        <% if (promolist.length > 0) {%>
+
+            <% promolist.forEach((recref, index) => { %>
+                <img src="img/ads/<%= recref.promoimage %>" alt="Ad banner">
+
+            <% }); %>
+        <% } %>
+
     </div>
 
 </main>
