@@ -64,8 +64,14 @@ router.get('/addrecord', function (req, res, next) {
 // Route to obtain user input and save in database.
 // ==================================================
 router.post('/', function (req, res, next) {
+  var homepage_value=0;
+  if (req.body.status)
+  {
+    homepage_value = 1;
+  }
+
   let insertquery =
-    'INSERT INTO gigs (title, description, price, delivery_time, seller_id, gig_category_id) VALUES (?, ?, ?, ?, ?, ?)'
+    'INSERT INTO gigs (title, description, price, delivery_time, seller_id, gig_category_id, homepage) VALUES (?, ?, ?, ?, ?, ?, ?)'
   db.query(
     insertquery,
     [
@@ -74,7 +80,8 @@ router.post('/', function (req, res, next) {
       req.body.price,
       req.body.time,
       req.body.sellerID,
-      req.body.gigCatID
+      req.body.gigCatID,
+      homepage_value
     ],
     (err, result) => {
       if (err) {
@@ -91,6 +98,12 @@ router.post('/', function (req, res, next) {
 // Route to save edited data in database.
 // ==================================================
 router.post('/save', function (req, res, next) {
+  var homepage_value=0;
+  if (req.body.status)
+  {
+    homepage_value = 1;
+  }
+
   let updatequery =
     'UPDATE gigs SET title = ?, description = ?, price = ?, delivery_time = ?, seller_id = ?, gig_category_id = ?, homepage = ? WHERE service_id = ' +
     req.body.service_id
@@ -103,7 +116,7 @@ router.post('/save', function (req, res, next) {
         req.body.time,
         req.body.sellerID,
         req.body.gigCatID,
-        req.body.homepage
+        homepage_value
 
     ],
     (err, result) => {

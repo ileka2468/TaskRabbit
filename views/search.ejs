@@ -1,0 +1,23 @@
+<h1>Search</h1>
+<% if (allrecs.length > 0) {%>
+    <table border="1">
+        <tr>
+            <th> Gig Title </th>
+            <th> Gig Description </th>
+            <th> Gig Price </th>
+            <th> Gig Delivery Time </th>
+            <th> See Details </th>
+        </tr>
+        <% allrecs.forEach((recref, index) => { %>
+            <tr>
+                <td><%= recref.title %></td>
+                <td><%= recref.description %></td>
+                <td><%= recref.price %></td>
+                <td><%= recref.delivery_time %></td>
+                <td><a href='/gigs/<%= recref.service_id %>/show'>Details</a></td>
+            </tr>
+        <% }); %>
+    </table>
+<% } else { %>
+    <p>No Records Available</p>
+<% } %>

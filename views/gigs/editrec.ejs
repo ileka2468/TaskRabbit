@@ -12,7 +12,6 @@
     <main>
         <h1> Edit Record</h1>
         <form action="/gigs/save" method="post">
-            <% console.log(onerec.homepage) %>
             <input type="hidden" name="service_id" value="<%= onerec.service_id %>" >
             <table>
             <tr> <td> Gig Title: </td> <td> <input type="text" name="title" value="<%= onerec.title %>" required> </td> </tr>
@@ -22,11 +21,16 @@
                 var descBox = document.getElementById('description');
                 descBox.textContent = descBox.getAttribute('data-description')
             </script>
-            <tr> <td> Gig Price: </td> <td> <input type="text" name="price" value="<%= onerec.price %>" required> </td> </tr>
-            <tr> <td> Gig Delivery Time: </td> <td> <input type="text" name="time" value="<%= onerec.delivery_time %>" required> </td> </tr>
-            <tr> <td> Seller ID: </td> <td> <input type="text" name="sellerID" value="<%= onerec.seller_id %>" required> </td> </tr>
-            <tr> <td> Gig Category ID: </td> <td> <input type="text" name="gigCatID" value="<%= onerec.gig_category_id %>" required> </td> </tr>
-            <tr> <td> Homepage Status: </td> <td> <input type="text" name="homepage" value="<%= onerec.homepage %>" required> </td> </tr>
+                <tr> <td> Gig Price: </td> <td> <input type="text" name="price" value="<%= onerec.price %>" required> </td> </tr>
+                <tr> <td> Gig Delivery Time: </td> <td> <input type="text" name="time" value="<%= onerec.delivery_time %>" required> </td> </tr>
+                <tr> <td> Seller ID: </td> <td> <input type="text" name="sellerID" value="<%= onerec.seller_id %>" required> </td> </tr>
+                <tr> <td> Gig Category ID: </td> <td> <input type="text" name="gigCatID" value="<%= onerec.gig_category_id %>" required> </td> </tr>
+                <% if (onerec.homepage === 1) {%>
+                    <tr> <td> Homepage Status: </td> <td> <input type="checkbox" name="status" checked > </td> </tr>
+                <% } else {%>
+                    <tr> <td> Homepage Status: </td> <td> <input type="checkbox" name="status" > </td> </tr>
+                <% }%>
+
             </table>
             <button type="submit">Save</button>
         </form>

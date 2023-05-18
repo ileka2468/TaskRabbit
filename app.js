@@ -45,6 +45,7 @@ var subcategoryRouter = require('./routes/subcategories')
 var userRouter = require('./routes/users1')
 
 var reportsRouter = require('./routes/reports')
+var searchRouter = require('./routes/search');
 
 var app = express();
 
@@ -75,7 +76,9 @@ app.use('/menucategories', menucategoryRouter)
 app.use('/orders', orderRouter)
 app.use('/subcategories', subcategoryRouter)
 app.use('/users', userRouter)
+
 app.use('/reports', reportsRouter)
+app.use('/search', searchRouter);
 
 
 // catch 404 and forward to error handler

@@ -2,27 +2,16 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  let booklist = [
-    {
-    title: 'Tightrope - Americans Reaching for Hope',
-    author: 'Nicholas D. Kristof and Sheryl WuDunn',
-    publishedAt: new Date('2020-01-20'),
-    },
-    {
-    title: 'Dear Edward',
-    author: 'Ann Napolitano',
-    publishedAt: new Date('2019-12-18'),
-    },
-    {
-    title: 'I Am the Lorax',
-    author: ' Courtney Carbone',
-    publishedAt: new Date('2020-05-17'),
+router.get('/', function (req, res, next) {
+  let query =
+      'SELECT service_id, title, description, price, delivery_time, homepage FROM gigs WHERE homepage = true'
+  // execute query
+  db.query(query, (err, result) => {
+    if (err) {
+      console.log(err)
+      res.render('error')
     }
-    ];
-   
-
-  res.render('index', {passedData: booklist});
-});
-
+    res.render('index', { allrecs: result })
+  })
+})
 module.exports = router;

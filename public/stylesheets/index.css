@@ -15,4 +15,19 @@ main{
 .ad-banner {
     display: flex;
     justify-content: center;
+    position: relative;
+    bottom: 0;
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px; /* adjust this value for desired space between items */
+    margin-bottom: 10em;
+}
+
+.product-item {
+    border: 1px solid lightgrey;
+    height: 20em;
 }

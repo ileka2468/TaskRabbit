@@ -12,21 +12,39 @@
 
 <body>
 
-    
-        <%- include('partials/header') %>
-    
-    
-        <main>
+<%- include('partials/header') %>
 
-            <div class="ad-banner">
-                <img src="img/ads/ad1.png" alt="Ad banner">
-            </div>
+<main>
+    <div class="product-grid">
 
-            
-        </main>
+        <% if (allrecs.length > 0) {%>
 
-        
-        <%- include('partials/footer') %>
+                <% allrecs.forEach((recref, index) => { %>
+                <div class="product-item">
+                    <!-- Product details go here -->
+                    <p>Title: <%= recref.title %></p>
+                    <p>Price: $<%= recref.price %></p>
+                    <p>Description: <%= recref.description %></p>
+                    <p>Delivery time: <%= recref.delivery_time %> days</p>
+                </div>
+
+
+                <% }); %>
+
+        <% } %>
+
+
+
+
+    </div>
+
+    <div class="ad-banner">
+        <img src="img/ads/ad1.png" alt="Ad banner">
+    </div>
+
+</main>
+
+<%- include('partials/footer') %>
 </body>
 
 </html>
