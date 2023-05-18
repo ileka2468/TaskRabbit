@@ -19,7 +19,7 @@ body {
 div.ruby-wrapper {
   position: relative;
   /* width: 980px; */
-  height: 50px;
+  height: auto;
   margin: 0 auto;
   background: #333;
   display: flex;
