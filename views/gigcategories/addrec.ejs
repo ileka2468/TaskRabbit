@@ -14,7 +14,16 @@
         <form action="/gigcategories" method="post">
             <table>
                 <tr> <td> Gig Category Name: </td> <td> <input type="text" name="gig_category_name" required> </td> </tr>
-                <tr> <td> Sub Category ID: </td> <td> <input type="text" name="subcategory_id" required> </td> </tr>
+                <tr>
+                    <td> Sub Category ID: </td>
+                    <td>
+                        <select name="subcategory_id">
+                            <% subCat.forEach((rec, index)=>{ %>
+                                <option value="<%= rec.subcategory_id%>"> <%= `ID: ${rec.subcategory_id} - ${rec.subcategory}` %> </option>
+                           <% });%>
+                        </select>
+                    </td>
+                </tr>
                 <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
             </table>
             <button type="submit">Save</button>

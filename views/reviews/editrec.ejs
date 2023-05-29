@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Edit Review</title>
+</head>
+<body>
+<%- include('../partials/header') %>
+
+<main>
+    <h1>Edit Review</h1>
+    <form action="/reviews/save" method="post">
+        <input type="hidden" name="review_id" value="<%= onerec.review_id %>" >
+        <table>
+            <tr>
+                <td>User ID:</td>
+                <td>
+                    <select required name="user_id">
+                        <% userRecs.forEach((rec, index) =>{ %>
+                            <% if (onerec.user_id === rec.user_id) {%>
+                                <option selected value="<%= rec.user_id %>"> <%= ` ID: ${rec.user_id} - ${rec.firstname} - ${rec.type}` %> </option>
+                            <% } else {%>
+                                <option value="<%= rec.user_id %>"> <%= ` ID: ${rec.user_id} - ${rec.firstname} - ${rec.type}` %> </option>
+                            <% }%>
+                        <% });%>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Service ID:</td>
+                <td>
+                    <select required name="service_id">
+                        <% serviceRecs.forEach((rec, index) =>{ %>
+                            <% if (onerec.service_id === rec.service_id) {%>
+                                <option selected value="<%= rec.service_id %>"> <%= ` ID: ${rec.service_id} - ${rec.title}` %> </option>
+                            <% } else {%>
+                                <option value="<%= rec.service_id %>"> <%= ` ID: ${rec.service_id} - ${rec.title}` %> </option>
+                            <% }%>
+                        <% });%>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> Review Date: </td>
+                <td> <input type="date" name="reviewdate" value="<%= onerec.reviewdate.toISOString().split('T')[0] %>" required> </td>
+            </tr>
+            <tr>
+                <td> Rating: </td>
+                <td> <input type="number" min="1" max="5" name="rating" value="<%= onerec.rating %>" required> </td>
+            </tr>
+            <tr>
+                <td> Status: </td>
+                <td> <input type="text" name="status" value="<%= onerec.status %>" required> </td>
+            </tr>
+        </table>
+        <button type="submit">Save</button>
+    </form>
+</main>
+<%- include('../partials/footer') %>
+</body>
+</html>

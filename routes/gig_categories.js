@@ -1,5 +1,6 @@
 var express = require('express')
 var router = express.Router()
+var fetchoptions = require('./fetchoptions');
 // ==================================================
 // Route to list all records. Display view to list all records
 // ==================================================
@@ -44,11 +45,18 @@ router.get('/:recordid/edit', function (req, res, next) {
   // execute query
   db.query(query, (err, result) => {
     if (err) {
-      console.log(err)
-      res.render('error')
+      console.log(err);
+      res.render('error');
     } else {
-      console.log(result[0].description)
-      res.render('gigcategories/editrec', { onerec: result[0] })
+      // console.log(result[0].description)
+      fetchoptions("subcategories")
+          .then((result1) =>{
+            console.table(result);
+            res.render('gigcategories/editrec', { onerec: result[0], subCat: result1 });
+          }).catch((err) =>{
+            console.log(err)
+      });
+
     }
   })
 })
@@ -57,8 +65,15 @@ router.get('/:recordid/edit', function (req, res, next) {
 // Route to show empty form to obtain input form end-user.
 // ==================================================
 router.get('/addrecord', function (req, res, next) {
-  res.render('gigcategories/addrec')
-})
+
+  fetchoptions("subcategories")
+      .then((result)=>{
+        // console.table(result);
+        res.render('gigcategories/addrec', {subCat: result});
+      }).catch((err)=>{
+        console.log(err)
+  });
+});
 
 // ==================================================
 // Route to obtain user input and save in database.

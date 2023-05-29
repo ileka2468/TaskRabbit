@@ -1,20 +1,21 @@
-var express = require('express')
-var router = express.Router()
+var express = require('express');
+var fetchOptions = require('./fetchoptions');
+var router = express.Router();
 // ==================================================
 // Route to list all records. Display view to list all records
 // ==================================================
 router.get('/', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time, homepage FROM gigs'
+    'SELECT service_id, title, description, price, delivery_time, homepage FROM gigs';
   // execute query
   db.query(query, (err, result) => {
     if (err) {
-      console.log(err)
-      res.render('error')
+      console.log(err);
+      res.render('error');
     }
-    res.render('gigs/allrecords', { allrecs: result })
-  })
-})
+    res.render('gigs/allrecords', { allrecs: result });
+  });
+});
 
 // ==================================================
 // Route to view one specific record. Notice the view is one record
@@ -38,27 +39,51 @@ router.get('/:recordid/show', function (req, res, next) {
 // Route to edit one specific record.
 // ==================================================
 router.get('/:recordid/edit', function (req, res, next) {
+  let userResult;
+  let gigCatResult;
   let query =
     'SELECT service_id, title, description, price, delivery_time, seller_id, gig_category_id, homepage FROM gigs WHERE service_id = ' +
     req.params.recordid
   // execute query
-  db.query(query, (err, result) => {
+  db.query(query, (err, result1) => {
     if (err) {
       console.log(err)
       res.render('error')
     } else {
-      console.log(result[0].description)
-      res.render('gigs/editrec', { onerec: result[0] })
+      // console.log(result[0].description)
+      fetchOptions("users")
+          .then((result) =>{
+            userResult = result;
+              let query2 = 'SELECT gigs.gig_category_id, gig_categories.gig_category FROM gigs INNER JOIN gig_categories ON gigs.gig_category_id = gig_categories.gig_category_id';
+              db.query(query2, (err, result) =>{
+              res.render('gigs/editrec', { onerec: result1[0], userRecs: userResult, catName: result})
+            });
+          }).catch((err) => {
+            console.log(err)
+      });
+
     }
-  })
-})
+  });
+});
 
 // ==================================================
 // Route to show empty form to obtain input form end-user.
 // ==================================================
 router.get('/addrecord', function (req, res, next) {
-  res.render('gigs/addrec')
-})
+  let userResult;
+  let gigCatResult;
+  fetchOptions("users").
+    then((result)=>{
+      userResult = result;
+
+      return fetchOptions("gig_categories")
+    })
+      .then((result) =>{
+         gigCatResult = result;
+         res.render('gigs/addrec', {userRecs: userResult, gigCatRecs: gigCatResult})
+      }).catch((err) => {console.log(err)})
+
+});
 
 // ==================================================
 // Route to obtain user input and save in database.

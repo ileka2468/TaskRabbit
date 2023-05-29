@@ -15,7 +15,21 @@
             <input type="hidden" name="category_id" value="<%= onerec.category_id %>" >
             <table>
                 <tr> <td> Category Name: </td> <td> <input type="text" name="category_name" value="<%= onerec.category %>" required> </td> </tr>
-                <tr> <td> Menu Category ID: </td> <td> <input type="text" name="menu_category_id" value="<%= onerec.menu_category_id %>" required> </td> </tr>
+                <tr>
+                    <td> Menu Category ID: </td>
+                    <td>
+                        <select required name="menu_category_id">
+                            <% mc.forEach((rec, index)=>{ %>
+                            <% console.log(onerec)%>
+                                <% if (rec.menucategory_id === onerec.menu_category_id){ %>
+                                    <option selected value="<%= rec.menucategory_id%>"> <%= `ID: ${rec.menucategory_id} - ${rec.cat_name}` %> </option>
+                                <% } else {%>
+                                    <option value="<%= rec.menucategory_id%>"> <%= `ID: ${rec.menucategory_id} - ${rec.cat_name}` %> </option>
+                                <%}%>
+                            <% });%>
+                        </select>
+                    </td>
+                </tr>
                 <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
 
             </table>

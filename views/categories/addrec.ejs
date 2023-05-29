@@ -15,7 +15,16 @@
             <table>
             <tr> <td> Category Name: </td> <td> <input type="text" name="category" required> </td> </tr>
             <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
-            <tr> <td> Menu Cateogry ID: </td> <td> <input type="text" name="menu_category_id" required> </td> </tr>
+            <tr>
+                <td> Menu Cateogry ID: </td>
+                <td>
+                    <select required name="menu_category_id">
+                        <% mc.forEach((rec, index)=>{ %>
+                            <option value="<%= rec.menucategory_id%>"> <%= `ID: ${rec.menucategory_id} - ${rec.cat_name}` %> </option>
+                        <% });%>
+                    </select>
+                </td>
+            </tr>
             </table>
             <button type="submit">Save</button>
         </form>

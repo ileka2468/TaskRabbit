@@ -14,10 +14,22 @@
         <form action="/interests/save" method="post">
             <input type="hidden" name="gig_category_id" value="<%= onerec.user_id %>" >
             <table>
-                <tr> <td> User ID: </td> <td> <input type="text" name="user_id" value="<%= onerec.user_id %>" required> </td> </tr>
-                <tr> <td> Category ID: </td> <td> <input type="text" name="category_id" value="<%= onerec.category_id %>" required> </td> </tr>
-                <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
+                <tr>
+                    <td> User ID: </td>
+                    <td>
+                        <select name="user_id">
+                            <% users.forEach((rec, index) =>{ %>
+                                <% if (rec.user_id === onerec.user_id) {%>
+                                    <option selected value="<%= rec.user_id %>"> <%=`ID: ${rec.user_id} - ${rec.firstname} - ${rec.type}`%></option>
+                                <%} else{ %>
+                                        <option value="<%= rec.user_id %>"> <%=`ID: ${rec.user_id} - ${rec.firstname} - ${rec.type}`%></option>
+                                    <% }%>
+                            <%});%>
+                        </select>
+                    </td>
+                </tr>
 
+                <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
             </table>
             <button type="submit">Save</button>
         </form>

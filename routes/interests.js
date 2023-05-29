@@ -1,4 +1,5 @@
 var express = require('express')
+const fetchoptions = require("./fetchoptions");
 var router = express.Router()
 // ==================================================
 // Route to list all records. Display view to list all records
@@ -38,17 +39,29 @@ router.get('/:recordid/show', function (req, res, next) {
 // Route to edit one specific record.
 // ==================================================
 router.get('/:recordid/edit', function (req, res, next) {
+  let userRes;
+  let catRes;
   let query =
     'SELECT user_id, category_id FROM interests WHERE user_id = ' +
     req.params.recordid
   // execute query
-  db.query(query, (err, result) => {
+  db.query(query, (err, result1) => {
     if (err) {
       console.log(err)
       res.render('error')
     } else {
-      console.log(result[0].description)
-      res.render('interests/editrec', { onerec: result[0] })
+      // console.log(result[0].description)
+      fetchoptions("users")
+        .then((result)=>{
+          userRes = result;
+          return fetchoptions("categories")
+        }).then((result) =>{
+          catRes = result;
+          res.render('interests/editrec', { onerec: result1[0], users: userRes, cat : catRes })
+        }).catch((err) =>{
+          console.error(err);
+      });
+
     }
   })
 })
@@ -57,8 +70,19 @@ router.get('/:recordid/edit', function (req, res, next) {
 // Route to show empty form to obtain input form end-user.
 // ==================================================
 router.get('/addrecord', function (req, res, next) {
-  res.render('interests/addrec')
-})
+  let userRes;
+  let catRes;
+  fetchoptions("users")
+      .then((result)=>{
+        userRes = result;
+        return fetchoptions("categories")
+      }).then((result) =>{
+        catRes = result;
+        res.render('interests/addrec', {users: userRes, cat : catRes })
+      }).catch((err) =>{
+        console.error(err);
+      });
+});
 
 // ==================================================
 // Route to obtain user input and save in database.
@@ -88,14 +112,12 @@ router.post('/', function (req, res, next) {
 // ==================================================
 router.post('/save', function (req, res, next) {
   let updatequery =
-    'UPDATE interests SET user_id = ?, category_id = ? WHERE user_id = ' +
-    req.body.service_id
+    'UPDATE interests SET user_id = ? WHERE user_id = ' +
+    req.body.user_id
   db.query(
     updatequery,
     [
-      req.body.user_id,
-      req.body.category_id,
-
+      req.body.user_id
     ],
     (err, result) => {
       if (err) {

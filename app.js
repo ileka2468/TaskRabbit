@@ -43,6 +43,7 @@ var menucategoryRouter = require('./routes/menucategories')
 var orderRouter = require('./routes/orders')
 var subcategoryRouter = require('./routes/subcategories')
 var userRouter = require('./routes/users1')
+var reviewsRouter = require('./routes/reviews')
 
 var reportsRouter = require('./routes/reports')
 var searchRouter = require('./routes/search');
@@ -54,7 +55,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -64,20 +65,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/contact', contactRouter);
-app.use('/about', aboutRouter)
-app.use('/help', helpRouter)
-app.use('/privacy', privacyRouter)
+app.use('/about', aboutRouter);
+app.use('/help', helpRouter);
+app.use('/privacy', privacyRouter);
 
-app.use('/gigs', gigRouter)
-app.use('/categories', categoryRouter)
-app.use('/gigcategories', gig_categoryRouter)
-app.use('/interests', interestRouter)
-app.use('/menucategories', menucategoryRouter)
-app.use('/orders', orderRouter)
-app.use('/subcategories', subcategoryRouter)
-app.use('/users', userRouter)
+app.use('/gigs', gigRouter);
+app.use('/categories', categoryRouter);
+app.use('/gigcategories', gig_categoryRouter);
+app.use('/interests', interestRouter);
+app.use('/menucategories', menucategoryRouter);
+app.use('/orders', orderRouter);
+app.use('/subcategories', subcategoryRouter);
+app.use('/users', userRouter);
+app.use('/reviews', reviewsRouter);
 
-app.use('/reports', reportsRouter)
+app.use('/reports', reportsRouter);
 app.use('/search', searchRouter);
 
 

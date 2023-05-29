@@ -1,5 +1,7 @@
 var express = require('express')
 var router = express.Router()
+var fetchOptions = require('./fetchoptions')
+
 // ==================================================
 // Route to list all records. Display view to list all records
 // ==================================================
@@ -42,13 +44,21 @@ router.get('/:recordid/edit', function (req, res, next) {
     'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, priceAtSale FROM orders WHERE order_id = ' +
     req.params.recordid
   // execute query
-  db.query(query, (err, result) => {
+  db.query(query, (err, result1) => {
     if (err) {
       console.log(err)
       res.render('error')
     } else {
-      console.log(result[0].description)
-      res.render('orders/editrec', { onerec: result[0] })
+      fetchOptions("users").
+      then((result) => {
+        userData = result;
+        fetchOptions("gigs").
+        then((result) => {
+          gigData = result;
+          res.render('orders/editrec', { onerec: result1[0], userD: userData, gig: gigData})
+        });
+      }).catch((err) => { console.log(err) });
+
     }
   })
 })
@@ -57,8 +67,18 @@ router.get('/:recordid/edit', function (req, res, next) {
 // Route to show empty form to obtain input form end-user.
 // ==================================================
 router.get('/addrecord', function (req, res, next) {
-  res.render('orders/addrec')
-})
+  let userData;
+  let gigData;
+  fetchOptions("users").
+    then((result) => {
+      userData = result;
+      fetchOptions("gigs").
+        then((result) => {
+          gigData = result;
+          res.render('orders/addrec', { userD: userData, gig: gigData })
+        });
+    }).catch((err) => { console.log(err) });
+});
 
 // ==================================================
 // Route to obtain user input and save in database.
@@ -91,7 +111,7 @@ router.post('/', function (req, res, next) {
 // Route to save edited data in database.
 // ==================================================
 router.post('/save', function (req, res, next) {
-  console.log(req.body.buyer_id)
+  // console.log(req.body.buyer_id)
   let updatequery =
     'UPDATE orders SET buyer_id = ?, seller_id = ?, service_id = ?, fulfilled = ?, created_at = ?, priceAtSale = ? WHERE order_id = ' +
     req.body.order_id

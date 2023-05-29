@@ -13,8 +13,20 @@
         <h1> New Record</h1>
         <form action="/subcategories" method="post">
             <table>
-                <tr> <td> Sub Category: </td> <td> <input type="text" name="subcategory" required> </td> </tr>
-                <tr> <td> Category ID: </td> <td> <input type="text" name="category_id" required> </td> </tr>
+                <tr>
+                    <td> Sub Category: </td>
+                    <td> <input type="text" name="subcategory" required> </td>
+                </tr>
+                <tr>
+                    <td> Category ID: </td>
+                    <td>
+                        <select name="category_id">
+                            <% cat.forEach((rec, index)=>{ %>
+                                <option value="<%= rec.category_id%>"> <%= `ID: ${rec.category_id} - ${rec.category}` %> </option>
+                            <% });%>
+                        </select>
+                    </td>
+                </tr>
                 <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
             </table>
             <button type="submit">Save</button>

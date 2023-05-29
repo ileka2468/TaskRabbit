@@ -19,8 +19,36 @@
             placeholder="Description" required></textarea> </td> </tr>
             <tr> <td> Gig Price: </td> <td> <input type="text" name="price" required> </td> </tr>
             <tr> <td> Gig Delivery Time: </td> <td> <input type="text" name="time" required> </td> </tr>
-            <tr> <td> Seller ID: </td> <td> <input type="text" name="sellerID" required> </td> </tr>
-            <tr> <td> Gig Category ID: </td> <td> <input type="text" name="gigCatID" required> </td> </tr>
+            <tr>
+                <td> Seller ID: </td>
+
+                <td>
+                    <select required name="sellerID">
+                        <% userRecs.forEach((rec, index) =>{ %>
+                            <option value="<%= rec.user_id %>">
+                                <% if (rec.type === "seller") { %>
+                                    <%= rec.firstname + " - " + "seller" %>
+                                <%} else {%>
+                                    <%= rec.firstname + " - " + "buyer" %>
+                                <% } %>
+                            </option>
+                        <%});%>
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td> Gig Category ID: </td>
+                <td>
+                    <select required name="gigCatID">
+                        <% gigCatRecs.forEach((rec, index) =>{ %>
+                            <option value="<%= rec.user_id %>">
+                                <%= `ID: ${rec.gig_category_id} - ${rec.gig_category}` %>
+                            </option>
+                        <%});%>
+                    </select>
+                </td>
+            </tr>
             <tr> <td> Homepage Status: </td> <td> <input type="checkbox" name="status" > </td> </tr>
 
             </table>

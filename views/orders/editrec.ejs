@@ -14,11 +14,101 @@
         <form action="/orders/save" method="post">
             <input type="hidden" name="order_id" value="<%= onerec.order_id%>" >
             <table>
-                <tr> <td> Buyer ID: </td> <td> <input type="text" name="buyer_id" value="<%= onerec.buyer_id %>" required> </td> </tr>
-                <tr> <td> Seller ID: </td> <td> <input type="text" name="seller_id" value="<%= onerec.seller_id %>" required> </td> </tr>
-                <tr> <td> Service ID: </td> <td> <input type="text" name="service_id" value="<%= onerec.service_id %>" required> </td> </tr>
-                <tr> <td> Fulfilled Status: </td> <td> <input type="text" name="fulfilled" value="<%= onerec.fulfilled %>" required> </td> </tr>
-                <tr> <td> Date Order Placed: </td> <td> <input type="date" name="created_at" value="<%= onerec.created_at %>" required> </td> </tr>
+                <tr>
+                    <td> Buyer ID: </td>
+                    <td>
+                        <select required name="buyer_id">
+                            <% userD.forEach((rec, index) =>{ %>
+                                <% if(onerec.buyer_id === rec.user_id)  { %>
+
+                                    <option selected value="<%= rec.user_id %>">
+                                        <% if (rec.type === "seller") { %>
+                                            <%=`ID: ${rec.user_id} - ${rec.firstname} - seller` %>
+                                        <%} else {%>
+                                        <%=`ID: ${rec.user_id} ${rec.firstname} - buyer` %>
+                                        <% } %>
+                                    </option>
+                                <%} else{ %>
+                                        <option value="<%= rec.user_id %>">
+                                            <% if (rec.type === "seller") { %>
+                                                <%=`ID: ${rec.user_id} ${rec.firstname} - seller` %>
+                                            <%} else {%>
+                                                <%=`ID: ${rec.user_id} ${rec.firstname} - buyer` %>
+                                            <% } %>
+                                        </option>
+                                    <% }%>
+                            <%});%>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td> Seller ID: </td>
+                    <td>
+                        <select required name="seller_id">
+                            <% userD.forEach((rec, index) =>{ %>
+                                <% if(onerec.seller_id === rec.user_id)  { %>
+
+                                    <option selected value="<%= rec.user_id %>">
+                                        <% if (rec.type === "seller") { %>
+                                        <%=`ID: ${rec.user_id} - ${rec.firstname} - seller` %>
+                                        <%} else {%>
+                                        <%=`ID: ${rec.user_id} ${rec.firstname} - buyer` %>
+                                        <% } %>
+                                    </option>
+
+                                <%} else{ %>
+                                    <option value="<%= rec.user_id %>">
+                                        <% if (rec.type === "seller") { %>
+                                        <%=`ID: ${rec.user_id} ${rec.firstname} - seller` %>
+                                        <%} else {%>
+                                        <%=`ID: ${rec.user_id} ${rec.firstname} - buyer` %>
+                                        <% } %>
+                                    </option>
+                                <% }%>
+                            <%});%>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Service ID: </td>
+                    <td>
+                        <select required name="service_id">
+
+                            <% gig.forEach((rec, index) =>{ %>
+                                <% if(onerec.service_id === rec.service_id)  { %>
+
+                                    <option selected value="<%= rec.service_id %>">
+                                        <%=`ID: ${rec.service_id} - ${rec.title}` %>
+                                    </option>
+
+                                <%} else{ %>
+                                    <option value="<%= rec.user_id %>">
+                                        <%=`ID: ${rec.service_id} - ${rec.title}` %>
+                                    </option>
+                                <% }%>
+                            <%});%>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td> Fulfilled Status: </td>
+                    <td>
+
+                        <select name="fulfilled">
+                            <% if (onerec.fulfilled) {%>
+                                    <option selected value="1">True</option>
+                                    <option value="0">False</option>
+                            <%} else {%>
+                                    <option value="1">True</option>
+                                    <option selected value="0">False</option>
+                            <% } %>
+
+                        </select>
+                    </td>
+                </tr>
+                <tr> <td> Date Order Placed: </td> <td> <input type="date" name="created_at" value="<%= onerec.created_at.toISOString().split("T")[0] %>" required> </td> </tr>
                 <tr> <td> Price (Time of Sale): </td> <td> <input type="text" name="priceAtSale" value="<%= onerec.priceAtSale %>" required> </td> </tr>
                 <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
             </table>

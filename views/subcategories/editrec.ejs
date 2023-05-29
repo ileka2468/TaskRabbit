@@ -15,7 +15,20 @@
             <input type="hidden" name="subcategory_id" value="<%= onerec.subcategory_id %>" >
             <table>
                 <tr> <td>  Subcategory Name: </td> <td> <input type="text" name="subcategory" value="<%= onerec.subcategory %>" required> </td> </tr>
-                <tr> <td>  Category ID: </td> <td> <input type="text" name="category_id" value="<%= onerec.category_id %>" required> </td> </tr>
+                <tr>
+                    <td>  Category ID: </td>
+                    <td>
+                        <select name="category_id">
+                                <% cat.forEach((rec, index)=>{ %>
+                                    <% if (rec.category_id === onerec.category_id){ %>
+                                            <option selected value="<%= rec.category_id%>"> <%= `ID: ${rec.category_id} - ${rec.category}` %> </option>
+                                    <% } else {%>
+                                            <option value="<%= rec.category_id%>"> <%= `ID: ${rec.category_id} - ${rec.category}` %> </option>
+                                    <%}%>
+                                <% });%>
+                        </select>
+                    </td>
+                </tr>
                 <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
 
             </table>

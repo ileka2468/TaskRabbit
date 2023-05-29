@@ -1,5 +1,6 @@
-var express = require('express')
-var router = express.Router()
+var express = require('express');
+var router = express.Router();
+var fetchoptions = require('./fetchoptions');
 // ==================================================
 // Route to list all records. Display view to list all records
 // ==================================================
@@ -12,7 +13,7 @@ router.get('/', function (req, res, next) {
       console.log(err)
       res.render('error')
     }
-    res.render('subcategories/allrecords', { allrecs: result })
+    res.render('subcategories/allrecords', { allrecs: result });
   })
 })
 
@@ -29,7 +30,7 @@ router.get('/:recordid/show', function (req, res, next) {
       console.log(err)
       res.render('error')
     } else {
-      res.render('subcategories/onerec', { onerec: result[0] })
+      res.render('subcategories/onerec', { onerec: result[0] });
     }
   })
 })
@@ -42,12 +43,17 @@ router.get('/:recordid/edit', function (req, res, next) {
     'SELECT subcategory_id, subcategory, category_id FROM subcategories WHERE subcategory_id = ' +
     req.params.recordid
   // execute query
-  db.query(query, (err, result) => {
+  db.query(query, (err, result1) => {
     if (err) {
       console.log(err)
       res.render('error')
     } else {
-      res.render('subcategories/editrec', { onerec: result[0] })
+      fetchoptions("categories")
+          .then((result)=>{
+            res.render('subcategories/editrec', { onerec: result1[0], cat: result })
+          }).catch((err)=>{
+            console.log(err)
+      });
     }
   })
 })
@@ -55,9 +61,14 @@ router.get('/:recordid/edit', function (req, res, next) {
 // ==================================================
 // Route to show empty form to obtain input form end-user.
 // ==================================================
-router.get('/addrecord', function (req, res, next) {
-  res.render('subcategories/addrec')
-})
+  router.get('/addrecord', function (req, res, next) {
+    fetchoptions("categories")
+        .then((result)=>{
+          res.render('subcategories/addrec', {cat: result});
+        }).catch((err)=>{
+            console.log(err)
+    });
+  });
 
 // ==================================================
 // Route to obtain user input and save in database.

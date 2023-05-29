@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
         console.log(err);
         res.render('error');
       }
-      console.log("Promos is " + result2[0].promotitle)
+
       res.render('index', {allrecs: result , promolist: result2});
     });
   });

@@ -13,10 +13,60 @@
         <h1> New Record</h1>
         <form action="/orders" method="post">
             <table>
-                <tr> <td> Buyer ID: </td> <td> <input type="text" name="buyer_id" required> </td> </tr>
-                <tr> <td> Seller ID: </td> <td> <input type="text" name="seller_id" required> </td> </tr>
-                <tr> <td> Service ID: </td> <td> <input type="text" name="service_id" required> </td> </tr>
-                <tr> <td> Fulfilled: </td> <td> <input type="text" name="fulfilled" required> </td> </tr>
+                <tr> <td> Buyer ID: </td> <td>
+                        <select required name="buyer_id">
+                            <% userD.forEach((rec, index) =>{ %>
+
+                                <option value="<%= rec.user_id %>">
+                                    <% if (rec.type === "seller") { %>
+                                        <%= rec.firstname + " - " + "seller" %>
+                                    <%} else {%> 
+                                        <%= rec.firstname + " - " + "buyer" %>
+                                    <% } %>
+                                </option>
+
+                            <%});%>
+                        </select>
+                    </td> </tr>
+                <tr>
+                    <td>
+                        Seller ID:
+                    </td>
+                    <td>
+                        <select required name="seller_id">
+                            <% userD.forEach((rec, index) =>{ %>
+                                <option value="<%= rec.user_id %>">
+                                    <% if (rec.type === "seller") { %>
+                                        <%= rec.firstname + " - " + "seller" %>
+                                    <%} else {%> 
+                                        <%= rec.firstname + " - " + "buyer" %>
+                                    <% } %>
+                                </option>
+                            <%});%>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Service ID: </td>
+                    <td>
+                        <select required name="service_id">
+                            <% gig.forEach((rec, index) =>{ %>
+                                <option>
+                                    <%= `${rec.service_id}: ${rec.title}` %>
+                                </option>
+                            <%});%>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Fulfilled: </td>
+                    <td>
+                        <select name="fulfilled">
+                            <option value="1">True</option>
+                            <option value="0">False</option>
+                        </select>
+                    </td>
+                </tr>
                 <tr> <td> Date Order Placed: </td> <td> <input type="date" name="created_at" required> </td> </tr>
                 <tr> <td> Price (Time of Sale): </td> <td> <input type="text" name="priceAtSale" required> </td> </tr>
                 <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->

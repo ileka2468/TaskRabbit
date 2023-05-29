@@ -23,8 +23,38 @@
             </script>
                 <tr> <td> Gig Price: </td> <td> <input type="text" name="price" value="<%= onerec.price %>" required> </td> </tr>
                 <tr> <td> Gig Delivery Time: </td> <td> <input type="text" name="time" value="<%= onerec.delivery_time %>" required> </td> </tr>
-                <tr> <td> Seller ID: </td> <td> <input type="text" name="sellerID" value="<%= onerec.seller_id %>" required> </td> </tr>
-                <tr> <td> Gig Category ID: </td> <td> <input type="text" name="gigCatID" value="<%= onerec.gig_category_id %>" required> </td> </tr>
+                <tr>
+                    <td> Seller ID: </td>
+                    <td>
+                        <select required name="sellerID">
+                            <% userRecs.forEach((rec, index) =>{ %>
+                                <% if (onerec.seller_id === rec.user_id) {%>
+                                    <option selected value="<%= rec.user_id %>"> <%= ` ID: ${rec.user_id} - ${rec.firstname} - ${rec.type}` %> </option>
+                                <% } else {%>
+                                        <option value="<%= rec.user_id %>"> <%= ` ID: ${rec.user_id} - ${rec.firstname} - ${rec.type}` %> </option>
+                                    <% }%>
+                            <% });%>
+
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Gig Category ID: </td>
+<!--                    <td> <input type="text" name="gigCatID" value="<%= onerec.gig_category_id %>" required> </td>-->
+                    <td>
+                        <select required name="gigCatID">
+                            <% catName.forEach((rec, index) =>{ %>
+                                <% if (onerec.gig_category_id === rec.gig_category_id) {%>
+                                    <option selected value="<%= rec.gig_category_id %>"> <%= ` ID: ${rec.gig_category_id} - ${rec.gig_category}` %> </option>
+                                <% } else {%>
+                                    <option value="<%= rec.gig_category_id %>"> <%= ` ID: ${rec.gig_category_id} - ${rec.gig_category}` %> </option>
+                                <% }%>
+                            <% });%>
+
+                        </select>
+                    </td>
+
+                </tr>
                 <% if (onerec.homepage === 1) {%>
                     <tr> <td> Homepage Status: </td> <td> <input type="checkbox" name="status" checked > </td> </tr>
                 <% } else {%>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Add New Review</title>
+</head>
+<body>
+<%- include('../partials/header') %>
+<main>
+    <h1>New Review</h1>
+    <form action="/reviews" method="post">
+        <table>
+            <tr>
+                <td>User ID:</td>
+                <td>
+                    <select required name="user_id">
+                        <% userRecs.forEach((rec, index) =>{ %>
+                            <option value="<%= rec.user_id %>">
+                                <% if (rec.type === "buyer") { %>
+                                    <%= rec.firstname + " - " + "buyer" %>
+                                <% } else { %>
+                                    <%= rec.firstname + " - " + "seller" %>
+                                <% } %>
+                            </option>
+                        <% });%>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Service ID:</td>
+                <td>
+                    <select required name="service_id">
+                        <% serviceRecs.forEach((rec, index) =>{ %>
+                            <option value="<%= rec.service_id %>">
+                                <%= `ID: ${rec.service_id} - ${rec.title}` %>
+                            </option>
+                        <% });%>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> Review Date: </td>
+                <td> <input type="date" name="reviewdate" required> </td>
+            </tr>
+            <tr>
+                <td> Rating: </td>
+                <td> <input type="number" min="1" max="5" name="rating" required> </td>
+            </tr>
+            <tr>
+                <td> Status: </td>
+                <td> <input type="text" name="status" required> </td>
+            </tr>
+        </table>
+        <button type="submit">Save</button>
+    </form>
+</main>
+<%- include('../partials/footer') %>
+</body>
+</html>

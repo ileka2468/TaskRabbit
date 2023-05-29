@@ -13,8 +13,26 @@
         <h1> New Record</h1>
         <form action="/interests" method="post">
             <table>
-                <tr> <td> User ID: </td> <td> <input type="text" name="user_id" required> </td> </tr>
-                <tr> <td> Category ID: </td> <td> <input type="text" name="category_id" required> </td> </tr>
+                <tr>
+                    <td> User ID: </td>
+                    <td>
+                        <select name="user_id">
+                            <% users.forEach((rec, index) =>{ %>
+                                <option value="<%= rec.user_id %>"> <%=`ID: ${rec.user_id} - ${rec.firstname} - ${rec.type}`%></option>
+                            <%});%>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Category ID: </td>
+                    <td>
+                        <select name="category_id">
+                            <% cat.forEach((rec, index) =>{ %>
+                                <option value="<%= rec.category_id %>"> <%=`ID: ${rec.category_id} - ${rec.category}`%></option>
+                            <%});%>
+                        </select>
+                    </td>
+                </tr>
 
                 <!-- <tr> <td> Image: </td> <td> <input type="text" name="prodimage" required> </td> </tr> -->
             </table>

@@ -1,5 +1,6 @@
-var express = require('express')
-var router = express.Router()
+var express = require('express');
+var router = express.Router();
+var fetchoptions = require('./fetchoptions')
 // ==================================================
 // Route to list all records. Display view to list all records
 // ==================================================
@@ -42,22 +43,34 @@ router.get('/:recordid/edit', function (req, res, next) {
     'SELECT category_id, category, menu_category_id FROM categories WHERE category_id = ' +
     req.params.recordid
   // execute query
-  db.query(query, (err, result) => {
+  db.query(query, (err, result1) => {
     if (err) {
       console.log(err)
       res.render('error')
     } else {
-      console.log(result[0].description)
-      res.render('categories/editrec', { onerec: result[0] })
+      // console.log(result[0].description)
+      fetchoptions("menucategories")
+          .then((result)=>{
+            res.render('categories/editrec', { onerec: result1[0], mc: result })
+          }).catch((err)=>{
+            console.log(err);
+      });
+
     }
-  })
-})
+  });
+});
 
 // ==================================================
 // Route to show empty form to obtain input form end-user.
 // ==================================================
 router.get('/addrecord', function (req, res, next) {
-  res.render('categories/addrec');
+  fetchoptions("menucategories")
+      .then((result)=>{
+        res.render('categories/addrec', {mc: result});
+      }).catch((err)=>{
+    console.log(err)
+  });
+
 })
 
 // ==================================================

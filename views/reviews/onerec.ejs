@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
+    <title>Document</title>
+</head>
+<body>
+<%- include('../partials/header') %>
+
+<main>
+    <h1>Review Details</h1>
+    <table>
+        <tr> <td> Review ID: </td> <td> <%= onerec.review_id %> </td> </tr>
+        <tr> <td> User ID: </td> <td> <%= onerec.user_id %> </td> </tr>
+        <tr> <td> Service ID: </td> <td> <%= onerec.service_id %> </td> </tr>
+        <tr> <td> Review Date: </td> <td> <%= onerec.reviewdate %> </td> </tr>
+        <tr> <td> Rating: </td> <td> <%= onerec.rating %> </td> </tr>
+        <tr> <td> Status: </td> <td> <%= onerec.status %> </td> </tr>
+    </table>
+
+</main>
+
+<%- include('../partials/footer') %>
+</body>
+</html>
