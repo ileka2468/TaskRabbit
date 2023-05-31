@@ -22,11 +22,11 @@
                 <% allrecs.forEach((recref, index) => { %>
                 <div class="product-item">
                     <!-- Product details go here -->
-                    <p class="gig-title"><%= recref.title %></p>
-                    <img src="img/gig_img/<%= recref.gigimage%>" alt="" class="gig-image">
+                    <a class="gig-title" href="gigs/<%= recref.service_id%>/show"><%= recref.title %></a>
+                    <a href="gigs/<%= recref.service_id%>/show"><img src="img/gig_img/<%= recref.gigimage%>" alt="" class="gig-image"> </a>
                     <p class="gig-description"><%= recref.description %></p>
                     <p class="gig-delivery-time">Delivery time: <%= recref.delivery_time %> days</p>
-                    <p class="gig-price">$<%= recref.price %></p>
+                    <p class="gig-price"><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(recref.price)  %></p>
 
                     <button class="buy-button">Purchase</button>
 

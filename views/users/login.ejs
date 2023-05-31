@@ -24,9 +24,9 @@
                     <h3>Login to <strong>TaskRabbit</strong></h3>
                     <p class="mb-4">Login to get the full TaskRabbit experience. Find your freelance expert today! </p>
 
-                    <form action="/login" method="post">
+                    <form action="/users/login" method="post">
                         <div class="form-group first">
-                            <label for="username">Username</label>
+                            <label for="email">Email</label>
                             <input type="text" name="email" class="form-control" placeholder="email@example.com">
                         </div>
                         <div class="form-group last mb-3">
@@ -36,7 +36,7 @@
 
                         <div class="d-flex mb-5 align-items-center">
 
-                            <span class="ml-auto"><a href="/sign-up" class="forgot-pass">Don't have an account? Sign Up</a></span>
+                            <span class="ml-auto"><a href="/users/register" class="forgot-pass">Don't have an account? Sign Up</a></span>
                         </div>
 
                         <input type="submit" value="Log In" class="btn btn-block btn-primary">

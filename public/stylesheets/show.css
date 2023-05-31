@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,600&display=swap');
+
+body{
+    font-family: Poppins;
+}
+
+h2{
+    font-weight: 500;
+    font-size: 2em;
+}
+
+.top-box{
+    margin-left: 15%;
+}
+
+.handles{
+    display: flex;
+    align-items: center;
+
+}
+
+.group{
+    display: flex;
+    margin-top: .7em;
+}
+
+.user{
+    margin-left: .7em;
+    margin-right: .5em;
+}
+.pfp{
+    width: 1.7em;
+    margin-right: .5em;
+}
+
+.gig-image{
+    width: 45em;
+    padding: .5em;
+    border: 1px solid gray;
+}
+
+.gig-image-div{
+    margin-top: 1.3em;
+}
+
+.reviews, .gig-description{
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-top: 3em;
+}
+
+.stars{
+    margin-left: .6em;
+    display: flex;
+    margin-top: .3em;
+}
+
+.rating{
+    margin-left: .4em;
+}
+
+.checked {
+    color: orange;
+}
+
+.carousel-inner {
+    width: 50%;
+    padding-left: 1em;
+    border: 1px solid rgb(158, 169, 164);
+    border-radius: .3em;
+    height: 10em;
+}
+
+.des-div{
+    width: 50%;
+}
+
+
+
+
+

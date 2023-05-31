@@ -16,6 +16,10 @@ footer{
     margin-top: 2em;
 }
 
+h4{
+    margin-left: 0;
+}
+
 
 .report-link-container{
     display: flex;

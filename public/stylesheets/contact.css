@@ -68,6 +68,10 @@ form textarea {
   margin-right: 2%;
 }
 
+.sform{
+  all: revert;
+}
+
 @media (max-width: 480px) {
   .half {
     width: 100%;

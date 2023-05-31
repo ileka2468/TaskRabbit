@@ -47,11 +47,22 @@
             </tr>
             <tr>
                 <td> Rating: </td>
-                <td> <input type="number" min="1" max="5" name="rating" required> </td>
+                <td>
+                    <input type="radio" name="rating" value="1">★ <br/>
+                    <input type="radio" name="rating" value="2">★★ <br/>
+                    <input type="radio" name="rating" value="3">★★★ <br/>
+                    <input type="radio" name="rating" value="4">★★★★ <br/>
+                    <input type="radio" name="rating" value="5" checked="true" >★★★★★<br/>
+                </td>
             </tr>
             <tr>
                 <td> Status: </td>
-                <td> <input type="text" name="status" required> </td>
+                <td>
+                    <select name="status" >
+                        <option value="1">Live</option>
+                        <option value="0">Pending</option>
+                    </select>
+                </td>
             </tr>
         </table>
         <button type="submit">Save</button>

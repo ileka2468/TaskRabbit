@@ -49,11 +49,49 @@
             </tr>
             <tr>
                 <td> Rating: </td>
-                <td> <input type="number" min="1" max="5" name="rating" value="<%= onerec.rating %>" required> </td>
+
+                <td>
+                    <% if (onerec.rating == 1) { %>
+                        <input type="radio" name="rating" value="1" checked="true">★ <br/>
+                    <% } else { %>
+                        <input type="radio" name="rating" value="1">★ <br/>
+                    <% }%>
+                    <% if (onerec.rating == 2) { %>
+                        <input type="radio" name="rating" value="2" checked="true">★★<br/>
+                    <% } else { %>
+                        <input type="radio" name="rating" value="2">★★<br/>
+                    <% }%>
+                    <% if (onerec.rating == 3) { %>
+                        <input type="radio" name="rating" value="3" checked="true">★★★<br/>
+                    <% } else { %>
+                        <input type="radio" name="rating" value="3">★★★<br/>
+                    <% }%>
+                    <% if (onerec.rating == 4) { %>
+                        <input type="radio" name="rating" value="4" checked="true">★★★★<br/>
+                    <% } else { %>
+                        <input type="radio" name="rating" value="4">★★★★<br/>
+                    <% }%>
+                    <% if (onerec.rating == 5) { %>
+                        <input type="radio" name="rating" value="5" checked="true">★★★★★<br/>
+                    <% } else { %>
+                        <input type="radio" name="rating" value="5">★★★★★<br/>
+                    <% }%>
+
+                </td>
             </tr>
             <tr>
                 <td> Status: </td>
-                <td> <input type="text" name="status" value="<%= onerec.status %>" required> </td>
+                <td>
+                    <select name="status" >
+                        <% if (onerec.status === 1) { %>
+                            <option selected value="1">Live</option>
+                            <option value="0">Pending</option>
+                        <% } else {%>
+                                <option value="1">Live</option>
+                                <option selected value="0">Pending</option>
+                        <% }%>
+                    </select>
+                </td>
             </tr>
         </table>
         <button type="submit">Save</button>

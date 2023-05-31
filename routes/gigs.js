@@ -22,15 +22,31 @@ router.get('/', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/show', function (req, res, next) {
   let query =
-    'SELECT service_id, title, description, price, delivery_time, homepage FROM gigs WHERE service_id = ' +
+    'SELECT service_id, title, description, price, delivery_time, homepage, seller_id, gigimage FROM gigs WHERE service_id = ' +
     req.params.recordid
   // execute query
-  db.query(query, (err, result) => {
+  db.query(query, (err, result1) => {
     if (err) {
       console.log(err)
       res.render('error')
     } else {
-      res.render('gigs/onerec', { onerec: result[0] })
+      let sellerID = result1[0].seller_id
+      db.query('SELECT firstname, lastname, email FROM users WHERE user_id = ' +sellerID , (err, sellerData) =>{
+        if (err){
+          res.render('error')
+        } else{
+          db.query('SELECT Reviews.reviewdate, Reviews.rating, Reviews.review, Reviews.leftby, users.firstname, users.lastname, users.email FROM Reviews INNER JOIN users WHERE Reviews.leftby = users.user_id',(err, result2) =>{
+            if (err){
+              console.log(err);
+              res.render('error')
+            } else{
+              console.log(result2)
+              res.render('gigs/onerec', { onerec: result1[0], sellerInfo: sellerData[0], sellerReviews: result2});
+            }
+          });
+        }
+      });
+
     }
   })
 })
@@ -95,8 +111,7 @@ router.post('/', function (req, res, next) {
     homepage_value = 1;
   }
 
-  let insertquery =
-    'INSERT INTO gigs (title, description, price, delivery_time, seller_id, gig_category_id, homepage) VALUES (?, ?, ?, ?, ?, ?, ?)'
+  let insertquery = 'INSERT INTO gigs (title, description, price, delivery_time, seller_id, gig_category_id, homepage) VALUES (?, ?, ?, ?, ?, ?, ?)'
   db.query(
     insertquery,
     [

@@ -12,9 +12,10 @@
       <ul class="ruby-menu">
         <!-- NAV LINK NUMBER 1 -->
         <p>
-            <form action="/search" method="get">
-            Search: <input type="text" name="searchcriteria">
-            <input type="submit" value="Go">
+            <form class="sform" action="/search" method="get">
+            <label class="sform" for="searchcriteria">Search: </label>
+            <input class="sform" type="text" name="searchcriteria">
+            <input class="sform" type="submit" value="Go">
             </form>
           </p>
         <li class="ruby-menu-mega-shop">
@@ -28,11 +29,11 @@
                     <div class="ruby-col-2">
                       <h3 class="ruby-list-heading">Logo & Brand Identity</h3>
                       <ul>
-                        <li><a href="#">Logo Design</a></li>
-                        <li><a href="#">Brand Style Guides</a></li>
-                        <li><a href="#">Business Cards</a></li>
-                        <li><a href="#">Fonts & Typography</a></li>
-                        <li><a href="#">Icon Design</a></li>
+                        <li><a href="/search?searchcriteria=Logo">Logo Design</a></li>
+                        <li><a href="/search?searchcriteria=Brand">Brand Style Guides</a></li>
+                        <li><a href="/search?searchcriteria=Card">Business Cards</a></li>
+                        <li><a href="/search?searchcriteria=font">Fonts & Typography</a></li>
+                        <li><a href="/search?searchcriteria=icon">Icon Design</a></li>
                       </ul>
                     </div>
                     <div class="ruby-col-2">
@@ -41,25 +42,24 @@
                     <div class="ruby-col-2">
                       <h3 class="ruby-list-heading">Illustration & Art</h3>
                       <ul>
-                        <li><a href="#">Illustration</a></li>
-                        <li><a href="#">AI Artists</a></li>
-                        <li><a href="#">Children's Book Illustrations</a></li>
-                        <li><a href="#">Cartoons & Comics</a></li>
-                        <li><a href="#">Pattern Design</a></li>
-                        <li><a href="#">Tattoo Design</a></li>
-                        <li><a href="#">Pattern Design</a></li>
+                        <li><a href="/search?searchcriteria=Illustration">Illustration</a></li>
+                        <li><a href="/search?searchcriteria=AI-generated">AI Artists</a></li>
+                        <li><a href="/search?searchcriteria=children">Children's Book Illustrations</a></li>
+                        <li><a href="/search?searchcriteria=cartoon">Cartoons & Comics</a></li>
+                        <li><a href="/search?searchcriteria=pattern">Pattern Design</a></li>
+                        <li><a href="/search?searchcriteria=Tattoo">Tattoo Design</a></li>
                       </ul>
                     </div>
                     <div class="ruby-col-2">
                       <h3 class="ruby-list-heading">3D Design</h3>
                       <ul>
-                        <li><a href="#">3D Architecture</a></li>
-                        <li><a href="#">3D Industrial Design</a></li>
-                        <li><a href="#">3D Fashion & Garments</a></li>
-                        <li><a href="#">3D Printing Characters</a></li>
-                        <li><a href="#">3D Landscape</a></li>
-                        <li><a href="#">3D Game Art</a></li>
-                        <li><a href="#">3D Jewelry Design</a></li>
+                        <li><a href="/search?searchcriteria=architectural">3D Architecture</a></li>
+                        <li><a href="/search?searchcriteria=industrial">3D Industrial Design</a></li>
+                        <li><a href="/search?searchcriteria=fashion">3D Fashion & Garments</a></li>
+                        <li><a href="/search?searchcriteria=printing">3D Printing Characters</a></li>
+                        <li><a href="/search?searchcriteria=landscape">3D Landscape</a></li>
+                        <li><a href="/search?searchcriteria=game art">3D Game Art</a></li>
+                        <li><a href="/search?searchcriteria=jewelry">3D Jewelry Design</a></li>
                       </ul>
                     </div>
                     <div class="ruby-col-2">
@@ -68,12 +68,12 @@
                     <div class="ruby-col-2">
                       <h3 class="ruby-list-heading">Visual Design</h3>
                       <ul>
-                        <li><a href="#">Image Editing</a></li>
-                        <li><a href="#">Presentation Design</a></li>
-                        <li><a href="#">Background Removal</a></li>
-                        <li><a href="#">Infographic Design</a></li>
-                        <li><a href="#">Vector Tracing</a></li>
-                        <li><a href="#">Resume Design</a></li>
+                        <li><a href="/search?searchcriteria=images">Image Editing</a></li>
+                        <li><a href="/search?searchcriteria=presentation">Presentation Design</a></li>
+                        <li><a href="/search?searchcriteria=remove background">Background Removal</a></li>
+                        <li><a href="/search?searchcriteria=infographic">Infographic Design</a></li>
+                        <li><a href="/search?searchcriteria=vector">Vector Tracing</a></li>
+                        <li><a href="/search?searchcriteria=resume">Resume Design</a></li>
                       </ul>
                     </div>
                   </div>
@@ -1035,9 +1035,7 @@
         <li>
           <a href="#">Navigation</a>
           <ul>
-            <li>
-              <a class="user-view" href="/">Home</a>
-            </li>
+            <li><a class="user-view" href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/gigs">Gigs</a></li>
@@ -1051,9 +1049,29 @@
             <li><a href="/reviews">Reviews</a></li>
             <li><a href="/reports">Reports</a></li>
           </ul>
-
-        
         </li>
+
+        <% if (session.user_id > 0) { %>
+
+          <li>
+            <a href="#"> <%= session.username%> </a>
+            <ul>
+              <li><a href="/users/logout">Logout</a></li>
+            </ul>
+          </li>
+        <% } else {%>
+          <li>
+            <a href="/users/login">Login</a>
+          </li>
+
+        <% } %>
+
+
+
+
+
+
+
       </ul>
     </div>
   </div>
