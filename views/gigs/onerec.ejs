@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/show.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="/js/mathify.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -186,18 +187,46 @@
                     <div class="quant-controls">
                         <p>Gig Quantity</p>
                         <div class="form-outline">
-                            <input type="number" name="quantity" class="form-control" />
+                            <input value="1" min="1" id="quantityInput" type="number" name="quantity" class="form-control" />
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            <b><p>Upgrade you order with extras</p></b>
+            <p>Upgrade you order with extras</p>
 
             <div class="basic-cart">
+                <div class="bc-head">
+                    <p>Expedited Delivery  (24 hours)</p>
+                    <div class="form-check form-check-inline">
+                        <input name="extra"   class="form-check-input" type="checkbox" id="inlineCheckbox99" value="1">
+                    </div>
+                </div>
 
+                <div class="basic-cart-body">
+                    <p style="font-size: 0.8em; color: #7b7b7b">Order will be delivered within 24 hours of original order date.</p>
+                    <p><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format("5")%></p>
+                </div>
             </div>
+            <hr>
+            <div class="basic-cart">
+                <div class="bc-head">
+                    <b><h4 id="totalPrice"><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(onerec.price)%></h4></b>
+                </div>
+                <div class="basic-cart-body">
+                    <hr>
+                    <p id="quantString">Basic Package (X2)</p>
+                    <p><%=onerec.delivery_time%>-day delivery</p>
+                    <p>Unlimited Revisions</p>
+                </div>
+            </div>
+            <hr>
+            <input id="serverPrice" name="price" hidden value="<%= onerec.price%>" type="number">
+            <input hidden type="text" name="productId" value="<%= onerec.service_id%>">
+            <input hidden type="text" name="sellerID" value="<%= onerec.seller_id%>">
+
+            <input type="submit" value="Checkout">
         </form>
 
     </aside>
@@ -221,6 +250,7 @@
             document.body.style.overflow = 'auto';  // Enable scrolling again
         }
     </script>
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

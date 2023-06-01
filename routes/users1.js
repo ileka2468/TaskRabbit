@@ -93,7 +93,7 @@ router.post('/', function (req, res, next) {
               console.log(err)
               res.render('error')
             } else {
-              res.render('/users/login', {message: "Account created, login to continue."})
+              res.render('users/login', {message: "Account created, login to continue."})
             }
           }
       );

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <title>Index page</title>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+
+<%- include('partials/header') %>
+
+<main>
+
+
+
+    <% if (! session.cart){%>
+        <p>You have <%= session.cart ? session.cart.length : 0 %> items in your cart.</p>
+
+    <% } else if (session.cart.length === 0) {%>
+            <p>You have <%= session.cart ? session.cart.length : 0 %> items in your cart.</p>
+
+        <%} else{%>
+
+            <h1>Cart:</h1>
+            <% if (! session.user_id ){%>
+                <p>You must be signed in to checkout!</p>
+        <% } else {%>
+                <form method="post" action="/orders/">
+                    <button type="submit" style="background-color: #389a74" class="buy-button">Checkout</button>
+                </form>
+        <% }%>
+
+            <div class="product-grid">
+
+            <% if (allrecs.length > 0) {%>
+
+                <% allrecs.forEach((recref, index) => { %>
+                    <div class="product-item">
+                        <!-- Product details go here -->
+                        <a class="gig-title" href="/gigs/<%= recref.service_id%>/show"><%= recref.title %></a>
+                        <a href="/gigs/<%= recref.service_id%>/show"><img src="/img/gig_img/<%= recref.gigimage%>" alt="" class="gig-image"> </a>
+                        <p class="gig-description"><%= recref.description %></p>
+                        <p class="gig-delivery-time">Delivery time: <%= recref.delivery_time %> days</p>
+                        <p class="gig-price"><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(recref.price)  %></p>
+                        <form method="post" action="/catalog/remove-from-cart">
+                            <input hidden name="productId" value="<%=recref.service_id%>" type="text">
+                            <button type="submit" style="background-color: red" class="buy-button">Delete</button>
+                        </form>
+
+                    </div>
+
+
+                <% }); %>
+
+            <% } %>
+
+            <% }%>
+
+
+    </div>
+
+</main>
+
+<%- include('partials/footer') %>
+</body>
+
+</html>

@@ -15,7 +15,13 @@
 <%- include('partials/header') %>
 
 <main>
+    <p>You have <%= session.cart ? session.cart.length : 0 %> items in your <a href="/catalog/cart">cart</a>.</p>
+    <% console.log(session.cart) %>
+
+
+
     <div class="product-grid">
+
 
         <% if (allrecs.length > 0) {%>
 
@@ -28,7 +34,8 @@
                     <p class="gig-delivery-time">Delivery time: <%= recref.delivery_time %> days</p>
                     <p class="gig-price"><%= Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(recref.price)  %></p>
 
-                    <button class="buy-button">Purchase</button>
+                    <a class="gig-title" href="gigs/<%= recref.service_id%>/show"><button class="buy-button">Purchase</button></a>
+
 
                 </div>
 

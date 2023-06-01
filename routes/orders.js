@@ -7,7 +7,7 @@ var fetchOptions = require('./fetchoptions')
 // ==================================================
 router.get('/', function (req, res, next) {
   let query =
-    'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, priceAtSale FROM orders'
+    'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, orderTotal FROM orders'
   // execute query
   db.query(query, (err, result) => {
     if (err) {
@@ -23,7 +23,7 @@ router.get('/', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/show', function (req, res, next) {
   let query =
-    'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, priceAtSale FROM orders WHERE order_id = ' +
+    'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, orderTotal FROM orders WHERE order_id = ' +
     req.params.recordid
   // execute query
   db.query(query, (err, result) => {
@@ -41,7 +41,7 @@ router.get('/:recordid/show', function (req, res, next) {
 // ==================================================
 router.get('/:recordid/edit', function (req, res, next) {
   let query =
-    'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, priceAtSale FROM orders WHERE order_id = ' +
+    'SELECT order_id, buyer_id, seller_id, service_id, fulfilled, created_at, orderTotal FROM orders WHERE order_id = ' +
     req.params.recordid
   // execute query
   db.query(query, (err, result1) => {
@@ -84,28 +84,52 @@ router.get('/addrecord', function (req, res, next) {
 // Route to obtain user input and save in database.
 // ==================================================
 router.post('/', function (req, res, next) {
-  let insertquery =
-    'INSERT INTO orders (buyer_id, seller_id, service_id, fulfilled, created_at, priceAtSale) VALUES (?, ?, ?, ?, ?, ?)'
-  db.query(
-    insertquery,
-    [
-      req.body.buyer_id,
-      req.body.seller_id,
-      req.body.service_id,
-      req.body.fulfilled,
-      req.body.created_at,
-      req.body.priceAtSale
-    ],
-    (err, result) => {
-      if (err) {
-        console.log(err)
-        res.render('error')
-      } else {
-        res.redirect('/orders')
-      }
-    }
-  )
-})
+  if(!req.session.cart || req.session.cart.length === 0) {
+    return res.render('error', {message: "Your cart is empty."});
+  }
+  console.log("WE ARE IN THE INSERTION FOR ORDERS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+  req.session.cart.forEach((cartItem) => {
+    let insertquery =
+        'INSERT INTO orders (buyer_id, seller_id, service_id, fulfilled, created_at, orderTotal, extras, quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+
+    let orderTotal = cartItem.price * cartItem.quantity;
+    let date = new Date();
+
+    console.log(req.session.username,
+        cartItem.sellerID,
+        cartItem.productID,
+        0,
+        date,
+        orderTotal,
+        cartItem.extras,
+        cartItem.quantity)
+    db.query(
+        insertquery,
+        [
+          req.session.user_id,
+          cartItem.sellerID,
+          cartItem.productID,
+          0,
+          date,
+          orderTotal,
+          cartItem.extras,
+          cartItem.quantity
+        ],
+        (err, result) => {
+          if (err) {
+            console.log(err)
+            res.render('error')
+          }
+        }
+    );
+  });
+
+  // If everything goes well, empty the cart and redirect to orders
+  req.session.cart = [];
+  res.redirect('/');
+});
+
 
 // ==================================================
 // Route to save edited data in database.
